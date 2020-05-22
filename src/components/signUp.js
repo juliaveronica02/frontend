@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../action/auth";
 import classnames from "classnames";
 
-import Logo from "./logo.png";
+import Logo from "./img/logo.png";
 import "../App.css";
 
 class Register extends Component {
