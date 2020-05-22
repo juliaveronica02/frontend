@@ -1,39 +1,19 @@
 import React from 'react';
 import { Container, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
 import './form.css';
 
 const Tabel = (props) => {
   return (
-      <Container>
+      <Container className="mt-5 pt-5">
+        <h2 className="my-5 h2 text-center">Checkout Form</h2>
     <Form className="shadow-lg p-3 mb-5 bg-light rounded">
-      <FormGroup row >
-        <Label for="exampleEmail" sm={2}>Nama Penjual</Label>
-        <Col sm={10}>
+      <div className="row">
+      <div className="col-md-6 mb-2">
+        <Label for="exampleEmail">Buyer Name</Label>
           <Input type="name" name="name" id="name" placeholder="Nama Penjual" />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="examplePassword" sm={2}>Password</Label>
-        <Col sm={10}>
-          <Input type="input" name="input" id="input" placeholder="Nama Barang" />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="exampleSelect" sm={2}>Total Barang</Label>
-        <Col sm={10}>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Input>
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="payment" sm={2}>Pembayaran</Label>
-        <Col sm={10}>
+      </div>
+      <div className="col-md-6 mb-2">
+        <Label for="payment">Pembayaran</Label>
           <Input type="select" name="payment" id="selectPayment">
             <option>-Pilih-</option>
             <option>BCA</option>
@@ -42,30 +22,44 @@ const Tabel = (props) => {
             <option>BRI</option>
             <option>BPR</option>
           </Input>
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="exampleText" sm={2}>Pesan untuk Penjual</Label>
-        <Col sm={10}>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6 mb-2">
+        <Label for="exampleSelect">Buyer Address</Label>
+          <Input type="textarea" name="address" id="exampleSelect"/>
+        </div>
+        <div className="col-md-6 ">
+          <div className="d-flex justify-content-end">
+          <Button>Checkout</Button>
+          </div>
+      </div>
+      </div>
+      <div className="row">
+      <div className="col-md-6 mb-2">
+        <Label for="examplePassword">Zipcode</Label>
+          <Input type="number" name="input" id="input" placeholder="Zipcodes" />
+      </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6 mb-2">
+          <Label for="exampleText">Pesan untuk Penjual</Label>
           <Input type="textarea" name="text" id="exampleText" />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="checkbox2" sm={2}>Checkbox</Label>
-        <Col sm={{ size: 10 }}>
-          <FormGroup check>
+        </div>
+      </div>
+      
+      <div className="row mt-4">
+        <div className="col-md-6">
+        <FormGroup check>
             <Label check>
               <Input type="checkbox" id="checkbox2" />{' '}
-              Apakah anda sudah yakin?
+              I Agree With The Terms And Agreement
             </Label>
           </FormGroup>
-        </Col>
-      </FormGroup>
-      <FormGroup check row>
-        <Col sm={{ size: 10, offset: 2 }}>
-          <Button>Checkout</Button>
-        </Col>
-      </FormGroup>
+        </div>
+          
+      </div>
+      
     </Form>
     </Container>
   );

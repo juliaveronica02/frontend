@@ -26,9 +26,9 @@ export default class ItemSell extends Component {
             if (values.description === "") {
               errors.description = "Descriptiption is required";
             }
-            if (values.imageUrl === "") {
-              errors.imageUrl = "Image is required";
-            }
+            // if (values.imageUrl === "") {
+            //   errors.imageUrl = "Image is required";
+            // }
             if (values.quantity === "") {
               errors.quantity = "Quantity is required";
             }
@@ -38,10 +38,13 @@ export default class ItemSell extends Component {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            axios.post("http://api.juliaveronica.com/item/create/", {
+            axios.post("http://api.juliaveronica.com/item/create", {
               values,
+                headers: {
+                    "x-access-token": localStorage.getItem("jwtToken"),
+                  },
             });
-            alert("Form is Validated!");
+            alert("Create Sukses");
             setSubmitting(false);
           }}
         >
@@ -77,13 +80,13 @@ export default class ItemSell extends Component {
                           }`}
                         />
                         <p />
-                        <input
+                        {/* <input
                           type="file"
                           className="form-control inputText mb-1"
                           name="imageEvent"
                           style={{ width: "15.5rem" }}
                           ref={this.imageRef}
-                        />
+                        /> */}
                         <Field
                           placeholder="quantity"
                           type="number"

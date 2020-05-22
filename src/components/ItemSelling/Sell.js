@@ -14,13 +14,18 @@ const Sell = () =>{
             categoryId: ''
         },
         onSubmit: (values, action) =>{
-            axios.post('http://api.juliaveronica.com/item/create', values);
-            action.resetForm();
+            axios.post('http://api.juliaveronica.com/item/create', values,{
+                headers: {
+                    "x-access-token": localStorage.getItem("jwtToken"),
+                  },
+            });
+            // action.resetForm();
         }
     })
     
     return (
-       <Container>
+       <Container className="mt-5 pt-5 text-center">
+           <h1>Sell Your Item here</h1>
             <Row className="justify-content-md-center">
                 <Wrapper>
                     <Card className="text-left">

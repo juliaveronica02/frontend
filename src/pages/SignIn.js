@@ -7,7 +7,7 @@ function Signin() {
   return (
     <div>
       <SignIn />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
