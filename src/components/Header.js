@@ -1,5 +1,5 @@
 import React from "react";
-import Background from "./1.png";
+import Background from "./img/1.png";
 import Typed from "react-typed";
 
 function Header() {
