@@ -32,7 +32,6 @@ export default class Product extends React.Component {
     const { width } = this.state;
     const isMobile = width <= 500;
     console.log(this.state.products);
-
     if (isMobile) {
       return (
         <div className="container">
@@ -64,22 +63,24 @@ export default class Product extends React.Component {
     return (
       <div className="container">
         <div class="row">
-          {this.state.products.map((listProduct) => (
-            <div className="col-3" key={listProduct.id}>
-              <div style={imageStyle}>
-                <NavLink to={`/details/detail/${listProduct.id}`}>
-                  <img
-                    style={slideStyles}
-                    src={`${process.env.REACT_APP_API_URL}${listProduct.imageUrl}`}
-                    alt="Lorem ipsum"
-                  />
-                </NavLink>
-                <small>{listProduct.name}</small>
-                <h5>{listProduct.name}</h5>
-                <h5>Rp.{listProduct.price},-</h5>
+          {this.state &&
+            this.state.products &&
+            this.state.products.map((listProduct) => (
+              <div className="col-3" key={listProduct.id}>
+                <div style={imageStyle}>
+                  <NavLink to={`/details/detail/${listProduct.id}`}>
+                    <img
+                      style={slideStyles}
+                      src={`${process.env.REACT_APP_API_URL}${listProduct.imageUrl}`}
+                      alt="Lorem ipsum"
+                    />
+                  </NavLink>
+                  <small>{listProduct.name}</small>
+                  <h5>{listProduct.name}</h5>
+                  <h5>Rp.{listProduct.price},-</h5>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     );
