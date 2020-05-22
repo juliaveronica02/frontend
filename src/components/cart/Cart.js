@@ -113,7 +113,7 @@ const Index = (props) => {
                     )
                 })}
                 <div className="d-flex justify-content-end">
-                    <Link className="btn btn-primary" onClick={checkout} to="/checkout">Checkout</Link>
+                    <Link className="btn btn-primary" to="/checkout">Checkout</Link>
                 </div>
             </div>
         </div>
