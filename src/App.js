@@ -17,7 +17,7 @@ import Carousel from "./components/carousel/Carousel";
 import Cart from "./components/cart/Cart";
 import Detail from "./components/detail/Detail";
 import Footer from "./components/Footer";
-import ItemSell from "./components/ItemSelling/ItemSell";
+import ItemSell from "./components/ItemSelling/Sell";
 import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";

@@ -14,7 +14,7 @@ const Sell = () =>{
             categoryId: ''
         },
         onSubmit: (values, action) =>{
-            axios.post('http://api.juliaveronica.com/item/create', values,{
+            axios.post('https://api.juliaveronica.com/item/create', values,{
                 headers: {
                     "x-access-token": localStorage.getItem("jwtToken"),
                   },
@@ -64,7 +64,7 @@ const Sell = () =>{
                                 <Form.Group>
                                     <Form.Label>Image Url</Form.Label>
                                     <Form.Control 
-                                    type="text" 
+                                    type="file" 
                                     name="imageUrl" 
                                     onChange={formik.handleChange} 
                                     value={formik.values.imageUrl}

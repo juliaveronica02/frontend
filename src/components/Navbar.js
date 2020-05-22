@@ -56,7 +56,7 @@ export default class NavMenu extends React.Component {
             light
             expand="md"
           >
-            <NavLink className="navbar-brand" to="/">
+            <NavLink className="navbar-brand" to="/cart">
               <img src={Logo} width={50} alt="..." />
             </NavLink>
             <ul
