@@ -4,6 +4,8 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
 import { setCurrentUser, logoutUser } from "./action/auth";
+import ScrollTop from "./components/scrollTop";
+import localforage from "localforage";
 
 import { Provider } from "react-redux";
 import store from "./store/store";
@@ -12,6 +14,18 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Signin from "./pages/SignIn";
 import Signup from "./pages/Signup";
+
+import Carousel from "./components/carousel/Carousel";
+import Cart from "./components/cart/Cart";
+import Detail from "./components/detail/detail";
+import Footer from "./components/footer/Footer";
+import ItemSell from "./components/ItemSelling/Sell";
+import Login from "./components/login/Login2";
+import MiniCarousel from "./components/carousel/MiniCarousel";
+import Register from "./components/register/Register";
+import Tabel from './components/form/Form';
+
+
 
 import ProductList from "./components/productDetails";
 
