@@ -4,16 +4,29 @@ import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
+  console.log("user", userData);
+
   axios
     .post(`${process.env.REACT_APP_API_URL_REGISTER}`, userData)
     .then((res) => history.push("/signin")) // re-direct to login on successful register
-    .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response.data }));
+    .catch((err) => {
+      console.log("error", err);
+      dispatch({
+        type: GET_ERRORS,
+        // payload: err.response.data,
+      });
+    });
 };
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post(`${process.env.REACT_APP_API_URL_LOGIN}`, userData)
+    .post(
+      `${process.env.REACT_APP_API_URL_LOGIN}`,
+
+      userData
+    )
     .then((res) => {
+      console.log(res);
       // Save to localStorage Set token to localStorage
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
@@ -24,7 +37,7 @@ export const loginUser = (userData) => (dispatch) => {
       // Set current user
       dispatch(setCurrentUser(decoded));
     })
-    .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response.data }));
+    .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response }));
 };
 // Set logged in user
 export const setCurrentUser = (decoded) => {

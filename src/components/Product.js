@@ -11,12 +11,15 @@ export default class Product extends React.Component {
     };
   }
   componentDidMount() {
+    console.log(localStorage.getItem("jwtToken"));
     axios
-      .get(`${process.env.REACT_APP_API_URL_PRODUCT}`, {
-        headers: {
-          "x-access-token": localStorage.getItem("jwtToken"),
-        },
-      })
+      .get(
+        `${process.env.REACT_APP_API_URL_PRODUCT}`
+        // {
+        //   headers: {
+        //     "x-access-token": localStorage.getItem("jwtToken"),
+        //   },
+      )
       .then((response) => {
         console.log(response.data);
 
