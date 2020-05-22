@@ -48,6 +48,16 @@ if (localStorage.jwtToken) {
     window.location.href = "./signin";
   }
 }
+try {
+  const fun = async () => {
+    console.log("halo");
+    const val = await localforage.getItem("keranjang");
+    window.dataKeranjang = val;
+  };
+  fun();
+} catch {
+  console.error("belum bisa pakai localforage");
+}
 
 export default class App extends Component {
   render() {
@@ -62,6 +72,7 @@ export default class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/about" component={About} />
+            <Route path="/item/:id" component={Detail}/>
             <Switch>
               <PrivateRoute
                 exact
