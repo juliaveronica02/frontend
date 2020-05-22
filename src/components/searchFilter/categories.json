@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "category": "Woman"
+  },
+  {
+    "id": "2",
+    "category": "Man"
+  },
+  {
+    "id": "3",
+    "category": "Electronic"
+  },
+  {
+    "id": "4",
+    "category": "Accesories"
+  },
+  {
+    "id": "5",
+    "category": "Beauty"
+  },
+  {
+    "id": "6",
+    "category": "Bag"
+  },
+  {
+    "id": "7",
+    "category": "Home and Garden"
+  },
+  {
+    "id": "8",
+    "category": "Kids"
+  },
+  {
+    "id": "9",
+    "category": "Sale"
+  }
+]
