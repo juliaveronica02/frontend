@@ -98,7 +98,7 @@ const Index = (props) => {
                     return (
                         <div>
                           <h1>Your Cart</h1>
-                          <img src={`${URL}${item.imageUrl}`} alt={item.name} style={{height : "200px"}} />
+                          <img src={`${process.env.REACT_APP_API_URL}${item.imageUrl}`} alt={item.name} style={{height : "200px"}} />
                           <h2>Nama : {item.name}</h2>
                           <h3>Price : Rp {item.price}</h3>
                           {/* Sebuah barang dengan id {item.id} dengan jumlah {item.jumlah} nama {item.name} */}

@@ -10,20 +10,24 @@ const Detail = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://api.juliaveronica.com/item/show/${id}`).then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL_PRODUCT}/${id}`, {
+      headers: {
+        "x-access-token": localStorage.getItem("jwtToken"),
+      },
+    }).then((res) => {
       const data = res.data;
       setData(data);
     });
   }, [id]);
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
-  const showDetail = [data].map((item, index) => {
+  const showDetail = [data].map((item) => {
     const URL = "http://3.136.102.205/";
     return (
       <Container className="dark-grey-text mt-5 pt-4" fluid>
-        <Row key={index}>
+        <Row key={item.id}>
           <Col md={6} mb={4} className="d-flex justify-content-center">
             <Image
-              src={`${URL}${item.imageUrl}`}
+              src={`${process.env.REACT_APP_API_URL}${item.imageUrl}`}
               // src={testimage}
               alt="Gambar"
               // style={{height: "400px", justifyContent: "center"}}
