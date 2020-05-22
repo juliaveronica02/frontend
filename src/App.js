@@ -16,8 +16,8 @@ import Signup from "./pages/Signup";
 import Carousel from "./components/carousel/Carousel";
 import Cart from "./components/cart/Cart";
 import Detail from "./components/detail/Detail";
-import Footer from "./components/footer/Footer";
-import ItemSell from "./components/ItemSelling/Sell";
+import Footer from "./components/Footer";
+import ItemSell from "./components/ItemSelling/ItemSell";
 import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
@@ -29,6 +29,7 @@ import ProductList from "./components/productDetails";
 
 // import NavMenu from './components/navbar/navbar'
 import NavMenu from "./components/Navbar.js";
+import { Tab } from "react-bootstrap";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -64,6 +65,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router>
+          <ScrollTop>
           <div>
             <NavMenu />
           </div>
@@ -73,6 +75,9 @@ export default class App extends Component {
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/about" component={About} />
             <Route path="/item/:id" component={Detail}/>
+            <Route path="/cart" component={Cart}/>
+            <Route path="/checkout" component={Tabel}/>
+            <Route path="/sell" component={ItemSell}/>
             <Switch>
               <PrivateRoute
                 exact
@@ -81,6 +86,8 @@ export default class App extends Component {
               />
             </Switch>
           </div>
+          <Footer/>
+          </ScrollTop>
         </Router>
       </Provider>
     );

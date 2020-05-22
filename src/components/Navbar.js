@@ -45,7 +45,6 @@ export default class NavMenu extends React.Component {
       );
     } else {
       return (
-        <div>
           <Navbar
             color="white"
             className="fixed-top"
@@ -117,7 +116,6 @@ export default class NavMenu extends React.Component {
               </li>
             </ul>
           </Navbar>
-        </div>
       );
     }
   }
