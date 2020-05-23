@@ -81,7 +81,7 @@ class Register extends Component {
                       onChange={this.onChange}
                       value={this.state.name}
                       error={errors.name}
-                      placeholder=" fullname"
+                      placeholder=" Full Name"
                       id="name"
                       size="25"
                       type="name"
@@ -92,7 +92,7 @@ class Register extends Component {
                       onChange={this.onChange}
                       value={this.state.email}
                       error={errors.email}
-                      placeholder=" email"
+                      placeholder=" Email Address"
                       id="email"
                       size="25"
                       type="email"
@@ -106,7 +106,7 @@ class Register extends Component {
                       onChange={this.onChange}
                       value={this.state.phone}
                       error={errors.phone}
-                      placeholder=" phone"
+                      placeholder=" Phone Number"
                       id="phone"
                       size="25"
                       type="number"
@@ -118,7 +118,7 @@ class Register extends Component {
                       onChange={this.onChange}
                       value={this.state.password}
                       error={errors.password}
-                      placeholder=" password"
+                      placeholder=" Password"
                       id="password"
                       size="25"
                       type="password"
@@ -132,7 +132,7 @@ class Register extends Component {
                       onChange={this.onChange}
                       value={this.state.password2}
                       error={errors.password2}
-                      placeholder=" password"
+                      placeholder=" Confirm Password"
                       id="password2"
                       size="25"
                       type="password"

@@ -102,10 +102,10 @@ const Index = (props) => {
                                 <div className="col-md-6">
                                     <img src={`${URL}${item.imageUrl}`} alt={item.name} style={{height : "200px"}} />
                                 </div>
-                                <div className="col-md-6">
-                                    <h2>Nama : {item.name}</h2>
-                                    <h3>Price : Rp {item.price}</h3>
-                                    <Counter/>
+                                <div className="col-md-6 text-left">
+                                    <h4>Nama : {item.name}</h4>
+                                    <h6>Price : Rp {item.price}</h6>
+                                    {/* <Counter/> */}
                                 </div>
                             </div>
                             
