@@ -56,23 +56,23 @@ export default class NavMenu extends React.Component {
           light
           expand="md"
         >
-          <NavLink className="navbar-brand" to="/cart">
-            <img src={Logo} width={50} alt="..." />
+          <NavLink className="navbar-brand" to="/">
+            Trishop
           </NavLink>
           <ul
             className="ml-auto navbar-nav"
             style={{
-              padding: 10,
+              padding: 5,
             }}
           >
             <li
               className="nav-item"
               style={{
-                padding: 10,
+                padding: 0,
               }}
             >
-              <NavLink className="nav-link" to="/">
-                Home
+              <NavLink className="nav-link" to="/cart">
+              <img src={Logo} width={50} alt="..." />
               </NavLink>
             </li>
             <li
@@ -95,7 +95,7 @@ export default class NavMenu extends React.Component {
                 className="nav-link"
                 to="/sell"
               >
-                Sells
+                Sell
               </NavLink>
             </li>
             <li
@@ -104,6 +104,7 @@ export default class NavMenu extends React.Component {
                 padding: 10,
                 backgroundColor: "rgb(31, 43, 82)",
                 borderRadius: 10,
+                marginRight: 10
               }}
             >
               <NavLink
