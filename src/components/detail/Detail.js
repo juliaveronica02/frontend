@@ -60,7 +60,7 @@ const Detail = () => {
           </Col>
         </Row>
         <hr />
-        <Row>
+        <Row className="d-flex justify-content-center">
           <div class="col-md-6 text-center">
             <h4 class="my-4">Additional information</h4>
             <p>
@@ -70,6 +70,7 @@ const Detail = () => {
               eum in laborum.
             </p>
           </div>
+        </Row>
           <div class="row">
             <div class="col-lg-4 col-md-12 mb-4">
               <img
@@ -93,7 +94,7 @@ const Detail = () => {
               />
             </div>
           </div>
-        </Row>
+
       </Container>
     );
   });
