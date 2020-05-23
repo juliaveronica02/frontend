@@ -19,10 +19,11 @@ const Tabel = (props) => {
       console.log(values)
         axios.post('https://api.juliaveronica.com/payment/create', values)
         // action.resetForm();
-        window.alert('Thanks, This Function is Still under progress')
+        
         .then((response) => {
           setData([]);
           localforage.setItem('keranjang', []);
+          window.alert('Thanks, This Function is Still under progress')
       })
     }
 })
