@@ -11,7 +11,12 @@ class productDetails extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `${process.env.REACT_APP_API_URL_PRODUCT}/${this.props.match.params.id}`
+        `${process.env.REACT_APP_API_URL_PRODUCT}/${this.props.match.params.id}`,
+        {
+          headers: {
+            "x-access-token": localStorage.getItem("jwtToken"),
+          },
+        }
       )
       .then((response) => {
         console.log(response);

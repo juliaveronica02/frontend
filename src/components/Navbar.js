@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Navbar } from "reactstrap";
-import Logo from "./logo.png";
-
+import Logo from "./img/logo.png";
+import { FaDollarSign } from "react-icons/fa";
 import SideBar from "./navbarSlide";
 import "./style.css";
 
@@ -45,79 +45,94 @@ export default class NavMenu extends React.Component {
       );
     } else {
       return (
-        <div>
-          <Navbar
-            color="white"
-            className="fixed-top"
+        <Navbar
+          color="white"
+          className="fixed-top"
+          style={{
+            position: " ",
+            width: "100%",
+            boxShadow: "0 2px 6px 0 rgba(0,0,0,.2)",
+          }}
+          light
+          expand="md"
+        >
+          <NavLink className="navbar-brand" to="/">
+            Trishop
+          </NavLink>
+          <ul
+            className="ml-auto navbar-nav"
             style={{
-              position: " ",
-              width: "100%",
-              boxShadow: "0 2px 6px 0 rgba(0,0,0,.2)",
+              padding: 5,
             }}
-            light
-            expand="md"
           >
-            <NavLink className="navbar-brand" to="/">
+            <li
+              className="nav-item"
+              style={{
+                padding: 0,
+              }}
+            >
+              <NavLink className="nav-link" to="/cart">
               <img src={Logo} width={50} alt="..." />
-            </NavLink>
-            <ul
-              className="ml-auto navbar-nav"
+              </NavLink>
+            </li>
+            <li
+              className="nav-item"
               style={{
                 padding: 10,
               }}
+            ></li>
+            <li
+              className="nav-item"
+              style={{
+                padding: 10,
+                backgroundColor: "rgb(31, 43, 82)",
+                borderRadius: 10,
+                marginRight: 10,
+              }}
             >
-              <li
-                className="nav-item"
-                style={{
-                  padding: 10,
-                }}
+              <NavLink
+                style={{ color: "white" }}
+                className="nav-link"
+                to="/sell"
               >
-                <NavLink className="nav-link" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li
-                className="nav-item"
-                style={{
-                  padding: 10,
-                }}
-              ></li>
-              <li
-                className="nav-item"
-                style={{
-                  padding: 10,
-                  backgroundColor: "rgb(31, 43, 82)",
-                  borderRadius: 10,
-                  marginRight: 10,
-                }}
+                Sell
+              </NavLink>
+            </li>
+            <li
+              className="nav-item"
+              style={{
+                padding: 10,
+                backgroundColor: "rgb(31, 43, 82)",
+                borderRadius: 10,
+                marginRight: 10
+              }}
+            >
+              <NavLink
+                style={{ color: "white" }}
+                className="nav-link"
+                to="/signin"
               >
-                <NavLink
-                  style={{ color: "white" }}
-                  className="nav-link"
-                  to="/signin"
-                >
-                  Signin
-                </NavLink>
-              </li>
-              <li
-                className="nav-item"
-                style={{
-                  padding: 10,
-                  backgroundColor: "rgb(31, 43, 82)",
-                  borderRadius: 10,
-                }}
+                Signin
+              </NavLink>
+            </li>
+            <li
+              className="nav-item"
+              style={{
+                padding: 10,
+                backgroundColor: "rgb(31, 43, 82)",
+                borderRadius: 10,
+              }}
+            >
+              <NavLink
+                style={{ color: "white" }}
+                className="nav-link"
+                to="/signup"
               >
-                <NavLink
-                  style={{ color: "white" }}
-                  className="nav-link"
-                  to="/signup"
-                >
-                  Signup
-                </NavLink>
-              </li>
-            </ul>
-          </Navbar>
-        </div>
+                Signup
+              </NavLink>
+            </li>
+          </ul>
+        </Navbar>
       );
     }
   }

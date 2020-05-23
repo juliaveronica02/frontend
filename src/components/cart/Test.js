@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { beli } from './../actioncreators/cart'
 
 const Item = (props) => {
@@ -9,11 +8,12 @@ const Item = (props) => {
     const beli = () => {
         props.beli(cart.id, cart.name, cart.price, cart.imageUrl);
         console.log(`saya beli ${cart.name}`)
+        window.alert('Item Added to Cart')
     }
     return (
-        <div>
-            <button className="btn btn-primary" onClick={beli}>Add To Cart</button>
-        </div>
+
+            <button className="btn btn-outline-light btn-secondary" onClick={beli}>Add To Cart</button>
+
     )
 }
 

@@ -8,7 +8,7 @@ export default class Home extends Component {
       <div>
         <Header />
         <Product />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
