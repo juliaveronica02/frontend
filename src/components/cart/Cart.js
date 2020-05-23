@@ -87,6 +87,7 @@ const Index = (props) => {
             .then((response) => {
                 setData([]);
                 localforage.setItem('keranjang', []);
+                window.alert("Thank You, The Next Feature is Still Coming Soon")
             })
     }
     const URL = "http://3.136.102.205/";
@@ -113,7 +114,7 @@ const Index = (props) => {
                     )
                 })}
                 <div className="d-flex justify-content-end">
-                    <Link className="btn btn-primary" to="/checkout">Checkout</Link>
+                    <Link className="btn btn-primary" onClick={checkout}>Checkout</Link>
                 </div>
             </div>
         </div>
