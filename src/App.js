@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
 import { setCurrentUser, logoutUser } from "./action/auth";
@@ -13,22 +12,20 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Signin from "./pages/SignIn";
 import Signup from "./pages/Signup";
-import Carousel from "./components/carousel/Carousel";
 import Cart from "./components/cart/Cart";
 import Detail from "./components/detail/Detail";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer";
 import ItemSell from "./components/ItemSelling/Sell";
-import Login from "./components/login/Login2";
-import MiniCarousel from "./components/carousel/MiniCarousel";
-import Register from "./components/register/Register";
-import Tabel from './components/form/Form';
-
-
-
+import Tabel from "./components/form/Form";
 import ProductList from "./components/productDetails";
-
-// import NavMenu from './components/navbar/navbar'
 import NavMenu from "./components/Navbar.js";
+// import { Tab } from "react-bootstrap";
+// import Carousel from "./components/carousel/Carousel";
+// import Login from "./components/login/Login2";
+// import MiniCarousel from "./components/carousel/MiniCarousel";
+// import Register from "./components/register/Register";
+// import NavMenu from './components/navbar/navbar'
+// import signIn from "./components/signIn";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -64,23 +61,29 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>
-            <NavMenu />
-          </div>
-          <div>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/signin" component={Signin} />
-            <Route exact path="/about" component={About} />
-            <Route path="/item/:id" component={Detail}/>
-            <Switch>
-              <PrivateRoute
-                exact
-                path="/details/detail/:id"
-                component={ProductList}
-              />
-            </Switch>
-          </div>
+          <ScrollTop>
+            <div>
+              <NavMenu />
+            </div>
+            <div>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/signin" component={Signin} />
+              <Route exact path="/about" component={About} />
+              <Route path="/item/:id" component={Detail} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/checkout" component={Tabel} />
+              <Route path="/sell" component={ItemSell} />
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/details/detail/:id"
+                  component={ProductList}
+                />
+              </Switch>
+            </div>
+            <Footer />
+          </ScrollTop>
         </Router>
       </Provider>
     );

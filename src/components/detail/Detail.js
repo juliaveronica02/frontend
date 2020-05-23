@@ -4,28 +4,33 @@ import { useParams } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import axios from "axios";
 import "./detail.css";
+import Cartt from "./../cart/Test";
+import { connect } from "react-redux";
+import { beli } from "../actioncreators/cart";
 
 const Detail = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL_PRODUCT}/${id}`, {
-      headers: {
-        "x-access-token": localStorage.getItem("jwtToken"),
-      },
-    }).then((res) => {
-      const data = res.data;
-      setData(data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL_PRODUCT}/${id}`, {
+        headers: {
+          "x-access-token": localStorage.getItem("jwtToken"),
+        },
+      })
+      .then((res) => {
+        const data = res.data;
+        setData(data);
+      });
   }, [id]);
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
   const showDetail = [data].map((item) => {
     const URL = "http://3.136.102.205/";
     return (
-      <Container className="dark-grey-text mt-5 pt-4" fluid>
+      <Container className="dark-grey-text mt-5 pt-5" fluid>
         <Row key={item.id}>
-          <Col md={6} mb={4} className="d-flex justify-content-center">
+          <Col md={6} mb={4} className="d-flex justify-content-center mt-4">
             <Image
               src={`${process.env.REACT_APP_API_URL}${item.imageUrl}`}
               // src={testimage}
@@ -49,20 +54,15 @@ const Detail = () => {
               <p className="lead font-weight-bold">Description</p>
               <p>{data.description}</p>
               <div className="d-flex justify-content-left">
-                <button className="mr-4 btn btn-outline-light btn-secondary">
-                  Add To Cart
-                </button>
-                <button className="btn btn-primary btn-lg my-0 p">
-                  Buy Now
-                </button>
+                <Cartt key={data.id} cart={data} />
               </div>
             </div>
           </Col>
         </Row>
         <hr />
-        <Row>
+        <Row className="d-flex justify-content-center">
           <div class="col-md-6 text-center">
-            <h4 class="my-4 h4">Additional information</h4>
+            <h4 class="my-4">Additional information</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
               suscipit modi sapiente illo soluta odit voluptates, quibusdam
@@ -70,6 +70,7 @@ const Detail = () => {
               eum in laborum.
             </p>
           </div>
+        </Row>
           <div class="row">
             <div class="col-lg-4 col-md-12 mb-4">
               <img
@@ -93,10 +94,15 @@ const Detail = () => {
               />
             </div>
           </div>
-        </Row>
+
       </Container>
     );
   });
   return <div>{showDetail}</div>;
 };
-export default Detail;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    beli,
+  };
+};
+export default connect(null, mapDispatchToProps)(Detail);

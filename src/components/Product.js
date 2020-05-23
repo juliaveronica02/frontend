@@ -18,12 +18,12 @@ class Product extends React.Component {
     console.log(localStorage.getItem("jwtToken"));
     axios
       .get(
-        `${process.env.REACT_APP_API_URL_PRODUCT}`
-        // {
-        //   headers: {
-        //     "x-access-token": localStorage.getItem("jwtToken"),
-        //   },
-      )
+        `${process.env.REACT_APP_API_URL_PRODUCT}`,
+        {
+          headers: {
+            "x-access-token": localStorage.getItem("jwtToken"),
+          },
+        })
       .then((response) => {
         console.log(response.data);
 

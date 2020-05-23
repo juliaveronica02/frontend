@@ -38,10 +38,13 @@ export default class ItemSell extends Component {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            axios.post("http://api.juliaveronica.com/item/create/", {
+            axios.post("https://api.juliaveronica.com/item/create", {
               values,
+                headers: {
+                    "x-access-token": localStorage.getItem("jwtToken"),
+                  },
             });
-            alert("Form is Validated!");
+            alert("Create Sukses");
             setSubmitting(false);
           }}
         >
