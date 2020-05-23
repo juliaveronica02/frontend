@@ -14,7 +14,7 @@ import Signin from "./pages/SignIn";
 import Signup from "./pages/Signup";
 import Cart from "./components/cart/Cart";
 import Detail from "./components/detail/Detail";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 import ItemSell from "./components/ItemSelling/Sell";
 import Tabel from "./components/form/Form";
 import ProductList from "./components/productDetails";
