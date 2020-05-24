@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Navbar } from "reactstrap";
 import Logo from "./img/logo.png";
 import { FaDollarSign } from "react-icons/fa";
@@ -35,9 +35,11 @@ export default class NavMenu extends React.Component {
           className="fixed-top"
           id="App"
         >
-          <center>
+          <Link to="/cart">
+            <center>
             <img src={Logo} alt="..." style={{ width: 30, paddingTop: 20 }} />
-          </center>
+            </center>
+          </Link>
           <div>
             <SideBar />
           </div>
