@@ -81,20 +81,21 @@ class Product extends React.Component {
             {this.state.products.map((listProduct) => (
               <div className="col-12" key={listProduct.id}>
                 <div style={imageStyle}>
-                  <NavLink to={`/details/detail/${listProduct.id}`}>
+                  <NavLink to={`/item/${listProduct.id}`}>
                     <img
                       style={slideStyles}
                       src={`${process.env.REACT_APP_API_URL}${listProduct.imageUrl}`}
                       alt="Lorem ipsum"
                     />
                   </NavLink>
-                  <small>{listProduct.product.name}</small>
-                  <h5>{listProduct.product.name}</h5>
+                  <small>{listProduct.name}</small>
+                  <h5>{listProduct.name}</h5>
                   <small>{listProduct.description}</small>
-                  <h5>Rp.{listProduct.product.price},-</h5>
-                  <h6>&nbsp; {listProduct.date}</h6>
-                  <h6>&nbsp; 10:00 WIB</h6>
-                  <small>&nbsp; {listProduct.location}</small>
+                  <h5>Rp.{listProduct.price},-</h5>
+                  <Link className="btn btn-primary mr-4" to={`/item/${listProduct.id}`}>
+                Detail
+              </Link>
+              <Cartt key={listProduct.id} cart={listProduct} />
                 </div>
               </div>
             ))}
