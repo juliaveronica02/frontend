@@ -5,10 +5,11 @@ import Logo from "./img/logo.png";
 import { FaDollarSign } from "react-icons/fa";
 import SideBar from "./navbarSlide";
 import "./style.css";
+import { connect } from "react-redux";
 
-export default class NavMenu extends React.Component {
+class NavMenu extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       width: window.innerWidth,
     };
@@ -37,7 +38,7 @@ export default class NavMenu extends React.Component {
         >
           <Link to="/cart">
             <center>
-            <img src={Logo} alt="..." style={{ width: 30, paddingTop: 20 }} />
+              <img src={Logo} alt="..." style={{ width: 30, paddingTop: 20 }} />
             </center>
           </Link>
           <div>
@@ -74,7 +75,7 @@ export default class NavMenu extends React.Component {
               }}
             >
               <NavLink className="nav-link" to="/cart">
-              <img src={Logo} width={50} alt="..." />
+                <img src={Logo} width={50} alt="..." />
               </NavLink>
             </li>
             <li
@@ -100,42 +101,53 @@ export default class NavMenu extends React.Component {
                 Sell
               </NavLink>
             </li>
-            <li
-              className="nav-item"
-              style={{
-                padding: 10,
-                backgroundColor: "rgb(31, 43, 82)",
-                borderRadius: 10,
-                marginRight: 10
-              }}
-            >
-              <NavLink
-                style={{ color: "white" }}
-                className="nav-link"
-                to="/signin"
-              >
-                Signin
-              </NavLink>
-            </li>
-            <li
-              className="nav-item"
-              style={{
-                padding: 10,
-                backgroundColor: "rgb(31, 43, 82)",
-                borderRadius: 10,
-              }}
-            >
-              <NavLink
-                style={{ color: "white" }}
-                className="nav-link"
-                to="/signup"
-              >
-                Signup
-              </NavLink>
-            </li>
+            {this.props.auth.isAuthenticated !== true ? (
+              <>
+                <li
+                  className="nav-item"
+                  style={{
+                    padding: 10,
+                    backgroundColor: "rgb(31, 43, 82)",
+                    borderRadius: 10,
+                    marginRight: 10,
+                  }}
+                >
+                  <NavLink
+                    style={{ color: "white" }}
+                    className="nav-link"
+                    to="/signin"
+                  >
+                    Signin
+                  </NavLink>
+                </li>
+                <li
+                  className="nav-item"
+                  style={{
+                    padding: 10,
+                    backgroundColor: "rgb(31, 43, 82)",
+                    borderRadius: 10,
+                  }}
+                >
+                  <NavLink
+                    style={{ color: "white" }}
+                    className="nav-link"
+                    to="/signup"
+                  >
+                    Signup
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
           </ul>
         </Navbar>
       );
     }
   }
 }
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps)(NavMenu);

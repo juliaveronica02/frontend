@@ -17,7 +17,7 @@ class Register extends Component {
       email: "",
       phone: "",
       password: "",
-      password2: "",
+      passwordConfirm: "",
       errors: {},
     };
   }
@@ -45,9 +45,9 @@ class Register extends Component {
       email: this.state.email,
       phone: this.state.phone,
       password: this.state.password,
-      password2: this.state.password2,
+      passwordConfirm: this.state.passwordConfirm,
     };
-    this.props.registerUser(newUser, this.props.history);
+    this.props.registerUser(newUser, this.props.history.push("/signin"));
     console.log(newUser);
   };
   render() {
@@ -130,14 +130,15 @@ class Register extends Component {
                   <div className="form-group">
                     <input
                       onChange={this.onChange}
-                      value={this.state.password2}
-                      error={errors.password2}
+                      value={this.state.passwordConfirm}
+                      error={errors.passwordConfirm}
                       placeholder=" Confirm Password"
-                      id="password2"
+                      id="passwordConfirm"
                       size="25"
                       type="password"
                       className={classnames("form-control", {
-                        invalid: errors.password2 || errors.passwordincorrect,
+                        invalid:
+                          errors.passwordConfirm || errors.passwordincorrect,
                       })}
                     />
                   </div>
