@@ -14,7 +14,7 @@ const Detail = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL_PRODUCT}/${id}`, {
+      .get(`${process.env.REACT_APP_API_URL}/item/show/${id}`, {
         headers: {
           "x-access-token": localStorage.getItem("jwtToken"),
         },
