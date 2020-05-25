@@ -7,8 +7,8 @@ export const registerUser = (userData, history) => (dispatch) => {
   console.log("user", userData);
 
   axios
-    .post(`${process.env.REACT_APP_API_URL}/users/register`, userData)
-    .then((res) => history.push("/signin")) // re-direct to login on successful register
+    .post(`https://api.juliaveronica.com/users/register`, userData)
+    // .then((res) => history.push("/signin")) // re-direct to login on successful register
     .catch((err) => {
       console.log("error", err);
       dispatch({
@@ -21,7 +21,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 export const loginUser = (userData) => (dispatch) => {
   axios
     .post(
-      `${process.env.REACT_APP_API_URL}/users/login`,
+      `https://api.juliaveronica.com/users/login`,
 
       userData
     )

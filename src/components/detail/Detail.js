@@ -14,7 +14,7 @@ const Detail = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/item/show/${id}`, {
+      .get(`https://api.juliaveronica.com/item/show/${id}`, {
         headers: {
           "x-access-token": localStorage.getItem("jwtToken"),
         },
@@ -32,7 +32,7 @@ const Detail = () => {
         <Row key={item.id}>
           <Col md={6} mb={4} className="d-flex justify-content-center mt-4">
             <Image
-              src={`${process.env.REACT_APP_API_URL}${item.imageUrl}`}
+              src={`${process.env.REACT_APP_API_URL_SERVER}/${item.imageUrl}`}
               // src={testimage}
               alt="Gambar"
               // style={{height: "400px", justifyContent: "center"}}
