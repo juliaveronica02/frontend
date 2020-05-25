@@ -32,10 +32,11 @@ const Main = () => {
     );
   });
   return (
-    <div>
+    <div className="container pt-5 mt-5 text-center">
+      <h1>Page Pembeli</h1>
       <table
         className="table table-dark table-striped table-hover justify-content-center"
-        style={{ width: "70%" }}
+        style={{ width: "100%" }}
       >
         <thead>
           <tr>

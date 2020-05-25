@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import { Navbar } from "reactstrap";
 import Logo from "./img/logo.png";
 import { FaDollarSign } from "react-icons/fa";
+import PropTypes from "prop-types";
+import Sidebar2 from "./SideBar2"
 import SideBar from "./navbarSlide";
 import "./style.css";
 import { connect } from "react-redux";
@@ -24,6 +26,10 @@ class NavMenu extends React.Component {
   handleWindowSizeChange = () => {
     this.setState({ width: window.innerWidth });
   };
+  onClick = () => {
+    localStorage.clear();
+    window.location.reload(false)
+  }
   render() {
     const { width } = this.state;
     const isMobile = width <= 500;
@@ -42,7 +48,12 @@ class NavMenu extends React.Component {
             </center>
           </Link>
           <div>
+          {this.props.auth.isAuthenticated !== true ? (
             <SideBar />
+          ) : (
+            <Sidebar2/>
+          )}
+            
           </div>
         </div>
       );
@@ -134,6 +145,32 @@ class NavMenu extends React.Component {
                     to="/signup"
                   >
                     Signup
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
+            {this.props.auth.isAuthenticated === true ? (
+              <>
+                <li
+                  className="nav-item"
+                  style={{
+                    padding: 10,
+                    backgroundColor: "rgb(31, 43, 82)",
+                    borderRadius: 10,
+                    marginRight: 10,
+                  }}
+                >
+                  <NavLink
+                    style={{ color: "white" }}
+                    className="nav-link"
+                    to="/"
+                    href="/"
+                    onClick={this.onClick}
+                    
+                  >
+                    Log out
                   </NavLink>
                 </li>
               </>
