@@ -75,7 +75,7 @@ export default class App extends Component {
               <Route path="/cart" component={Cart} />
               <Route path="/checkout" component={Tabel} />
               <Route path="/sell" component={ItemSell} />
-              <Pembeli />
+              <Route path="/buyer" component={Pembeli}/>
               <Switch>
                 <PrivateRoute
                   exact
