@@ -39,7 +39,7 @@ class Register extends Component {
     });
   };
   onSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -47,7 +47,7 @@ class Register extends Component {
       password: this.state.password,
       passwordConfirm: this.state.passwordConfirm,
     };
-    this.props.registerUser(newUser , this.props.history.push('/signin'));
+    this.props.registerUser(newUser, this.props.history.push("/signin"));
     console.log(newUser);
   };
   render() {
