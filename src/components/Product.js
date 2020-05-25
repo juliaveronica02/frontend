@@ -17,7 +17,7 @@ class Product extends React.Component {
   componentDidMount() {
     console.log(localStorage.getItem("jwtToken"));
     axios
-      .get(`${process.env.REACT_APP_API_URL}/item/show`, {
+      .get(`https://api.juliaveronica.com/item/show`, {
         headers: {
           "x-access-token": localStorage.getItem("jwtToken"),
         },
@@ -85,7 +85,7 @@ class Product extends React.Component {
                   <NavLink to={`/item/${listProduct.id}`}>
                     <img
                       style={slideStyles}
-                      src={`${process.env.REACT_APP_API_URL}${listProduct.imageUrl}`}
+                      src={`${process.env.REACT_APP_API_URL_SERVER}${listProduct.imageUrl}`}
                       alt="Lorem ipsum"
                     />
                   </NavLink>
