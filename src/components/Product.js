@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { NavLink, Link } from "react-router-dom";
-import NumberFormat from 'react-number-format'
-import Cartt from './cart/Test'
+import NumberFormat from "react-number-format";
+import Cartt from "./cart/Test";
 import { connect } from "react-redux";
-import {beli} from './actioncreators/cart'
+import { beli } from "./actioncreators/cart";
 
 class Product extends React.Component {
   constructor(props) {
@@ -17,13 +17,11 @@ class Product extends React.Component {
   componentDidMount() {
     console.log(localStorage.getItem("jwtToken"));
     axios
-      .get(
-        `${process.env.REACT_APP_API_URL_PRODUCT}`,
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("jwtToken"),
-          },
-        })
+      .get(`${process.env.REACT_APP_API_URL}/item/show`, {
+        headers: {
+          "x-access-token": localStorage.getItem("jwtToken"),
+        },
+      })
       .then((response) => {
         console.log(response.data);
 
@@ -44,7 +42,7 @@ class Product extends React.Component {
           <div className="card" key={listProduct.id}>
             <div className="box">
               <img
-                src={`${process.env.REACT_APP_API_URL}${listProduct.imageUrl}`}
+                src={`${process.env.REACT_APP_API_URL_SERVER}/${listProduct.imageUrl}`}
                 // src={require(`https://api.juliaveronica.com/${item.imageUrl}`)}
                 alt={listProduct.name}
                 className="card-img-top"
@@ -64,7 +62,10 @@ class Product extends React.Component {
               </p>
             </div>
             <div className="card-footer d-flex flex-row justify-content-center">
-              <Link className="btn btn-primary mr-4" to={`/item/${listProduct.id}`}>
+              <Link
+                className="btn btn-primary mr-4"
+                to={`/item/${listProduct.id}`}
+              >
                 Detail
               </Link>
               <Cartt key={listProduct.id} cart={listProduct} />
@@ -72,7 +73,7 @@ class Product extends React.Component {
           </div>
         </div>
       );
-    })
+    });
     console.log(this.state.products);
     if (isMobile) {
       return (
@@ -92,10 +93,13 @@ class Product extends React.Component {
                   <h5>{listProduct.name}</h5>
                   <small>{listProduct.description}</small>
                   <h5>Rp.{listProduct.price},-</h5>
-                  <Link className="btn btn-primary mr-4" to={`/item/${listProduct.id}`}>
-                Detail
-              </Link>
-              <Cartt key={listProduct.id} cart={listProduct} />
+                  <Link
+                    className="btn btn-primary mr-4"
+                    to={`/item/${listProduct.id}`}
+                  >
+                    Detail
+                  </Link>
+                  <Cartt key={listProduct.id} cart={listProduct} />
                 </div>
               </div>
             ))}
@@ -131,9 +135,7 @@ class Product extends React.Component {
       <div className="container pt-4 mb-4">
         <h3 className="text-center">Our Items</h3>
         <hr className="hr mb-4" />
-        <div className="row">
-          {showData}
-        </div>
+        <div className="row">{showData}</div>
       </div>
     );
   }
@@ -144,7 +146,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null,mapDispatchToProps)(Product)
+export default connect(null, mapDispatchToProps)(Product);
 
 // const slideStyle = {
 //   display: "block",
