@@ -19,6 +19,7 @@ import ItemSell from "./components/ItemSelling/Sell";
 import Tabel from "./components/form/Form";
 import ProductList from "./components/productDetails";
 import NavMenu from "./components/Navbar.js";
+import Pembeli from "./components/Pembeli/Pembeli";
 // import { Tab } from "react-bootstrap";
 // import Carousel from "./components/carousel/Carousel";
 // import Login from "./components/login/Login2";
@@ -74,6 +75,7 @@ export default class App extends Component {
               <Route path="/cart" component={Cart} />
               <Route path="/checkout" component={Tabel} />
               <Route path="/sell" component={ItemSell} />
+              <Pembeli />
               <Switch>
                 <PrivateRoute
                   exact
