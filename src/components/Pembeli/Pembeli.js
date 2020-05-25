@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import jwt from "jwt-decode";
 const Main = () => {
   const [data, setData] = useState([]);
+  const userId = jwt.name;
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL_ITEM}`, {
+      .get(`${process.env.REACT_APP_API_URL_ITEM}/${userId}`, {
         headers: {
           "x-access-token": localStorage.getItem("jwtToken"),
         },
@@ -19,7 +20,7 @@ const Main = () => {
     console.log("showdata", data);
     return (
       <tr key={id}>
-        <td>{data.price}</td>
+        <td>{data.id}</td>
 
         <td>
           <img
