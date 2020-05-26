@@ -13,7 +13,7 @@ export default class Footer extends Component {
   render() {
     return (
       <FooterWrapper>
-        <div className="row mt-4 pb-4">
+        <div className="row mt-4 pb-4" style={{margin: 0}}>
           <div className="col-4">
             <h3 className="font-weight-bold mb-3">Payment</h3>
             <img
