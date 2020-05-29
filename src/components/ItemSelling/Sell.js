@@ -24,8 +24,8 @@ class Sell extends Component {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => console.log(res), window.alert('Item Added'))
+      .catch((err) => console.log(err), window.alert('Sorry can not add product now'));
   };
   render() {
     return (
