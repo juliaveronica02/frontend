@@ -25,7 +25,7 @@ class Sell extends Component {
         },
       })
       .then((res) => console.log(res), window.alert('Item Added'))
-      .catch((err) => console.log(err), window.alert('Sorry can not add product now'));
+      .catch((err) => console.log(err));
   };
   render() {
     return (
