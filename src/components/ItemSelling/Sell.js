@@ -24,7 +24,7 @@ class Sell extends Component {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((res) => console.log(res), window.alert('Item Added'))
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
   render() {
