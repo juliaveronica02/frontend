@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 import Sidebar2 from "./SideBar2"
 import SideBar from "./navbarSlide";
 import "./style.css";
+import './Navbar.css';
+
 import { connect } from "react-redux";
 
 class NavMenu extends React.Component {
@@ -71,7 +73,9 @@ class NavMenu extends React.Component {
           expand="md"
         >
           <NavLink className="navbar-brand" to="/">
-            Trishop
+            <div className="trishop">
+              Trishop
+            </div>
           </NavLink>
           <ul
             className="ml-auto navbar-nav"
