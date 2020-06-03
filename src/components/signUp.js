@@ -48,7 +48,7 @@ class Register extends Component {
       passwordConfirm: this.state.passwordConfirm,
     };
     this.props.registerUser(newUser, window.alert('Sign up success'), this.props.history.push("/signin"));
-    console.log(newUser);
+    // console.log(newUser);
   };
   render() {
     const { errors } = this.state;
