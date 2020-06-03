@@ -9,12 +9,16 @@ export const registerUser = (userData, history) => (dispatch) => {
   axios
     .post(`https://api.juliaveronica.com/users/register`, userData)
     // .then((res) => history.push("/signin")) // re-direct to login on successful register
+    // .then((res) => {
+    //   window.alert('Sign up Success')
+    //   // history.push("/signin")
+    // })
     .catch((err) => {
       console.log("error", err);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data,
-      });
+      }, window.alert('Please Fill it Correctly, The same email cannot be used'));
     });
 };
 // Login - get user token
@@ -35,9 +39,11 @@ export const loginUser = (userData) => (dispatch) => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // Set current user
-      dispatch(setCurrentUser(decoded));
+      dispatch(setCurrentUser(decoded), window.alert('Login Success'));
+      
     })
-    .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response }));
+    .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response }, window.alert('Login Fail'))
+    );
 };
 // Set logged in user
 export const setCurrentUser = (decoded) => {
