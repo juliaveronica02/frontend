@@ -76,6 +76,7 @@ class Register extends Component {
                 />
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">
+                    <h3>Full Name</h3>
                     <input
                       className="form-control"
                       onChange={this.onChange}

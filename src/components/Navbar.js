@@ -74,7 +74,7 @@ class NavMenu extends React.Component {
         >
           <NavLink className="navbar-brand" to="/">
             <div className="trishop">
-              Trishop
+              <img src={require("./img/trishop.png")} />
             </div>
           </NavLink>
           <ul
