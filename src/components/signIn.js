@@ -79,12 +79,13 @@ class Login extends Component {
                     alt="..."
                   />
                   <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
+                    <div className="form-group text-left">
+                      <label>Email</label>
                       <input
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
-                        placeholder=" email"
+                        placeholder="Example@mail.com"
                         id="email"
                         size="25"
                         type="email"
@@ -93,12 +94,13 @@ class Login extends Component {
                         })}
                       />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group text-left">
+                      <label>Password</label>
                       <input
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
-                        placeholder=" password"
+                        // placeholder=" password"
                         id="password"
                         size="25"
                         type="password"
