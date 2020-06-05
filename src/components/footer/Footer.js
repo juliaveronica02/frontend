@@ -7,7 +7,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import "./footer.css";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 
 export default class Footer extends Component {
   render() {
@@ -15,7 +15,7 @@ export default class Footer extends Component {
       <FooterWrapper>
         <div className="row mt-4 pb-4" style={{margin: 0}}>
           <div className="col-4">
-            <h3 className="font-weight-bold mb-3">Payment</h3>
+            <h3 className="font-weight-bold mb-3 pay">Payment</h3>
             <img
               className="payment"
               src={require("../img/bca.jpeg")}
@@ -58,7 +58,7 @@ export default class Footer extends Component {
             />
           </div>
           <div className="col-4 ">
-            <h3 className="font-weight-bold mb-3">Delivery</h3>
+            <h3 className="font-weight-bold mb-3 del">Delivery</h3>
             <img
               className="delivery mt-2"
               src={require("../img/jne.jpeg")}
@@ -81,20 +81,22 @@ export default class Footer extends Component {
             />
           </div>
           <div className="col-4">
-            <h3 className="font-weight-bold mb-3 space-between ml-4">
+            <h3 className="font-weight-bold mb-3 space-between ml-4 fol">
               Follow Us
             </h3>
-            <div style={{ color: "blue" }}>
-              <FaFacebook size={40} color="blue" />
-              <FaInstagram size={40} color="red" />
-              <FaTwitter size={40} color="blue" />
-              <FaLine size={40} color="green" />
-              <FaYoutube size={40} color="red" />
+            <div style={{ 
+              color: "black"
+               }}>
+              <FaFacebook size={40} />
+              <FaInstagram size={40}  />
+              <FaTwitter size={40} />
+              <FaLine size={40}/>
+              <FaYoutube size={40}  />
             </div>
           </div>
         </div>
         <div className="pt-2 pb-2" style={{ backgroundColor: "#aab6fe" }}>
-          <h5 className="text-center">
+          <h5 className="text-center copy">
             &copy; Copyright by Ecommerce-Project 2020{" "}
           </h5>
         </div>
