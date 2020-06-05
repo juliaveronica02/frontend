@@ -42,7 +42,7 @@ class Product extends React.Component {
           <div className="card" key={listProduct.id}>
             <div className="box">
               <img
-                src={`${process.env.REACT_APP_API_URL_SERVER}/${listProduct.imageUrl}`}
+                src={`https://api.juliaveronica.com/${listProduct.imageUrl}`}
                 // src={require(`https://api.juliaveronica.com/${item.imageUrl}`)}
                 alt={listProduct.name}
                 className="card-img-top"
@@ -85,14 +85,20 @@ class Product extends React.Component {
                   <NavLink to={`/item/${listProduct.id}`}>
                     <img
                       style={slideStyles}
-                      src={`${process.env.REACT_APP_API_URL_SERVER}${listProduct.imageUrl}`}
+                      src={`${process.env.REACT_APP_API_URL_SERVER}/${listProduct.imageUrl}`}
                       alt="Lorem ipsum"
                     />
                   </NavLink>
                   <small>{listProduct.name}</small>
                   <h5>{listProduct.name}</h5>
                   <small>{listProduct.description}</small>
-                  <h5>Rp.{listProduct.price},-</h5>
+                  <h5>                
+                    <NumberFormat
+                      value={listProduct.price}
+                      displayType="text"
+                      thousandSeparator={true}
+                      prefix={"Rp "}
+                    /></h5>
                   <Link
                     className="btn btn-primary mr-4"
                     to={`/item/${listProduct.id}`}
