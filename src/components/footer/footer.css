@@ -39,15 +39,27 @@ code {
   height: 90px;
 }
 
+.pay {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .payment {
   width: 80px;
   height: 40px;
   margin: 5px;
 }
 
+.del {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .delivery {
   width: 70px;
   height: 50px;
+}
+
+.fol {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .text-center {
@@ -73,3 +85,8 @@ code {
 .test {
   height: 400px;
 }
+
+.copy {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
