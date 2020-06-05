@@ -62,13 +62,23 @@ class Product extends React.Component {
               </p>
             </div>
             <div className="card-footer d-flex flex-row justify-content-center">
-              <Link
+              {this.props.auth.isAuthenticated === true ? (
+                <Link
                 className="btn btn-primary mr-4"
                 to={`/item/${listProduct.id}`}
               >
                 Detail
               </Link>
-              <Cartt key={listProduct.id} cart={listProduct} />
+              ) : (
+                <Link
+                className="btn btn-primary mr-4"
+                to={`/signin`}
+              >
+                Detail
+              </Link>
+              )}
+              {this.props.auth.isAuthenticated === true ? (<Cartt key={listProduct.id} cart={listProduct} />) : (<></>)}
+              {/* <Cartt key={listProduct.id} cart={listProduct} /> */}
             </div>
           </div>
         </div>
@@ -151,8 +161,10 @@ const mapDispatchToProps = (dispatch) => {
     beli,
   };
 };
-
-export default connect(null, mapDispatchToProps)(Product);
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
 
 // const slideStyle = {
 //   display: "block",
