@@ -24,7 +24,7 @@ class Sell extends Component {
           "x-access-token": localStorage.getItem("jwtToken"),
           "Content-Type": "multipart/form-data",
         },
-      })
+      }, window.alert('sukses'))
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -44,6 +44,21 @@ class Sell extends Component {
           if (!values.name) {
             errors.name = (
               <small className="form-text text-danger">Name is required</small>
+            );
+            errors.price = (
+              <small className="form-text text-danger">Price is required</small>
+            );
+            errors.description = (
+              <small className="form-text text-danger">Description is required</small>
+            );
+            errors.quantity = (
+              <small className="form-text text-danger">Quantity is required</small>
+            );
+            errors.imageUrl = (
+              <small className="form-text text-danger">Image is required</small>
+            );
+            errors.categoryId = (
+              <small className="form-text text-danger">Category is required</small>
             );
             return errors;
           }
@@ -75,6 +90,7 @@ class Sell extends Component {
                             name="price"
                             placeholder="price"
                           />
+                          <ErrorMessage name="price" />
                         </div>
                         <div className="form-group">
                         <label>Description</label>
@@ -85,6 +101,7 @@ class Sell extends Component {
                             name="description"
                             placeholder="description"
                           />
+                          <ErrorMessage name="description" />
                         </div>
                         <div className="form-group">
                         <label>Quantity</label>
@@ -94,6 +111,7 @@ class Sell extends Component {
                             name="quantity"
                             placeholder="quantity"
                           />
+                          <ErrorMessage name="quantity" />
                         </div>
                         <div className="form-group">
                           <label>Upload Image</label>
@@ -103,6 +121,7 @@ class Sell extends Component {
                             name="imageUrl"
                             ref={this.imageRef}
                           />
+                          <ErrorMessage name="imageUrl" />
                         </div>
                         <div className="form-group">
                           <label>Category</label>
@@ -112,7 +131,7 @@ class Sell extends Component {
                             name="categoryId"
                             placeholder="category ID"
                           />
-                          <ErrorMessage name="establishment" />
+                          <ErrorMessage name="categoryId" />
                         </div>
                         <button
                           className="btn btn-outline-primary"
