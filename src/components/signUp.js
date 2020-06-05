@@ -48,7 +48,7 @@ class Register extends Component {
       passwordConfirm: this.state.passwordConfirm,
     };
     this.props.registerUser(newUser, window.alert('Sign up success'), this.props.history.push("/signin"));
-    console.log(newUser);
+    // console.log(newUser);
   };
   render() {
     const { errors } = this.state;
@@ -75,8 +75,8 @@ class Register extends Component {
                   alt="..."
                 />
                 <form onSubmit={this.onSubmit}>
-                  <div className="form-group">
-                    <h3>Full Name</h3>
+                  <div className="form-group text-left">
+                    <label>Full Name</label>
                     <input
                       className="form-control"
                       onChange={this.onChange}
@@ -88,7 +88,8 @@ class Register extends Component {
                       type="name"
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group text-left">
+                  <label>Email Address</label>
                     <input
                       onChange={this.onChange}
                       value={this.state.email}
@@ -102,7 +103,8 @@ class Register extends Component {
                       })}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group text-left">
+                  <label>Phone Number</label>
                     <input
                       onChange={this.onChange}
                       value={this.state.phone}
@@ -114,7 +116,8 @@ class Register extends Component {
                       className={classnames("form-control", {})}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group text-left">
+                  <label>Password</label>
                     <input
                       onChange={this.onChange}
                       value={this.state.password}
@@ -128,7 +131,8 @@ class Register extends Component {
                       })}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group text-left">
+                  <label>Confirm Password</label>
                     <input
                       onChange={this.onChange}
                       value={this.state.passwordConfirm}

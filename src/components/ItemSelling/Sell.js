@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Card, Button, Container, Row } from "react-bootstrap";
+import './../style.css'
 import styled from "styled-components";
 class Sell extends Component {
   constructor(props) {
@@ -53,10 +54,11 @@ class Sell extends Component {
             <Form>
               <div style={{ marginTop: 100 }} className="container">
                 <div className="row justify-content-md-center">
-                  <div className="col-sm-6">
+                  <div className="col-sm-6 col-md-6 col-lg-6">
                     <div className="card" style={{ width: "25rem" }}>
                       <div className="card-body">
                         <div className="form-group">
+                          <label>Name</label>
                           <Field
                             type="text"
                             className="form-control"
@@ -66,14 +68,17 @@ class Sell extends Component {
                           <ErrorMessage name="name" />
                         </div>
                         <div className="form-group">
+                        <label>Price</label>
                           <Field
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="price"
                             placeholder="price"
                           />
                         </div>
                         <div className="form-group">
+                        <label>Description</label>
+
                           <Field
                             type="text"
                             className="form-control"
@@ -82,14 +87,16 @@ class Sell extends Component {
                           />
                         </div>
                         <div className="form-group">
+                        <label>Quantity</label>
                           <Field
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="quantity"
                             placeholder="quantity"
                           />
                         </div>
                         <div className="form-group">
+                          <label>Upload Image</label>
                           <input
                             type="file"
                             className="form-control"
@@ -98,6 +105,7 @@ class Sell extends Component {
                           />
                         </div>
                         <div className="form-group">
+                          <label>Category</label>
                           <Field
                             type="text"
                             className="form-control"

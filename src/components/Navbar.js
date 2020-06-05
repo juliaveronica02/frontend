@@ -73,8 +73,8 @@ class NavMenu extends React.Component {
           expand="md"
         >
           <NavLink className="navbar-brand" to="/">
-            <div className="trishop">
-              <img src={require("./img/trishop.png")} />
+            <div className="cart">
+              <img src={require("./img/cart.png")} />
             </div>
           </NavLink>
           <ul
