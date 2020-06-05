@@ -42,7 +42,7 @@ class Product extends React.Component {
           <div className="card" key={listProduct.id}>
             <div className="box">
               <img
-                src={`${process.env.REACT_APP_API_URL_SERVER}/${listProduct.imageUrl}`}
+                src={`https://api.juliaveronica.com/${listProduct.imageUrl}`}
                 // src={require(`https://api.juliaveronica.com/${item.imageUrl}`)}
                 alt={listProduct.name}
                 className="card-img-top"
