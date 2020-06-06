@@ -25,7 +25,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
 }
 .App-login {
   margin-top: 80px;
