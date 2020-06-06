@@ -1,9 +1,28 @@
 import React from "react";
 import "../App.css";
-
+import {
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaLine,
+  FaYoutube,
+} from "react-icons/fa";
 function Footer() {
   return (
     <>
+      <div
+        className="text-center"
+        style={{
+          color: "black",
+          backgroundColor: "#aab6fe",
+        }}
+      >
+        <FaFacebook size={40} />
+        <FaInstagram size={40} />
+        <FaTwitter size={40} />
+        <FaLine size={40} />
+        <FaYoutube size={40} />
+      </div>
       <div className="App-footer">
         <div className="container">
           <div className="row">
@@ -44,6 +63,7 @@ function Footer() {
           </div>
         </div>
       </div>
+
       <div
         className="pt-2 pb-2"
         style={{ backgroundColor: "#aab6fe", width: "100%", height: "40px" }}
