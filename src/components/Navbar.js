@@ -4,10 +4,10 @@ import { Navbar } from "reactstrap";
 import Logo from "./img/logo.png";
 import { FaDollarSign } from "react-icons/fa";
 import PropTypes from "prop-types";
-import Sidebar2 from "./SideBar2"
+import Sidebar2 from "./SideBar2";
 import SideBar from "./navbarSlide";
 import "./style.css";
-import './Navbar.css';
+import "./Navbar.css";
 
 import { connect } from "react-redux";
 
@@ -30,8 +30,8 @@ class NavMenu extends React.Component {
   };
   onClick = () => {
     localStorage.clear();
-    window.location.reload(false)
-  }
+    window.location.reload(false);
+  };
   render() {
     const { width } = this.state;
     const isMobile = width <= 500;
@@ -50,12 +50,11 @@ class NavMenu extends React.Component {
             </center>
           </Link>
           <div>
-          {this.props.auth.isAuthenticated !== true ? (
-            <SideBar />
-          ) : (
-            <Sidebar2/>
-          )}
-            
+            {this.props.auth.isAuthenticated !== true ? (
+              <SideBar />
+            ) : (
+              <Sidebar2 />
+            )}
           </div>
         </div>
       );
@@ -74,7 +73,10 @@ class NavMenu extends React.Component {
         >
           <NavLink className="navbar-brand" to="/">
             <div className="cart">
-              <img src={require("./img/cart.png")} />
+              <img
+                className="trishop"
+                src={require("./img/trishop-logo.png")}
+              />
             </div>
           </NavLink>
           <ul
@@ -86,11 +88,11 @@ class NavMenu extends React.Component {
             <li
               className="nav-item"
               style={{
-                padding: 0,
+                padding: -5,
               }}
             >
               <NavLink className="nav-link" to="/cart">
-                <img src={Logo} width={50} alt="..." />
+                <img src={Logo} width={45} alt="..." />
               </NavLink>
             </li>
             <li
@@ -102,10 +104,12 @@ class NavMenu extends React.Component {
             <li
               className="nav-item"
               style={{
-                padding: 10,
+                padding: 8,
                 backgroundColor: "rgb(31, 43, 82)",
                 borderRadius: 10,
                 marginRight: 10,
+                height: 45,
+                width: 60,
               }}
             >
               <NavLink
@@ -121,10 +125,12 @@ class NavMenu extends React.Component {
                 <li
                   className="nav-item"
                   style={{
-                    padding: 10,
+                    padding: 8,
                     backgroundColor: "rgb(31, 43, 82)",
                     borderRadius: 10,
                     marginRight: 10,
+                    height: 45,
+                    width: 75,
                   }}
                 >
                   <NavLink
@@ -138,9 +144,11 @@ class NavMenu extends React.Component {
                 <li
                   className="nav-item"
                   style={{
-                    padding: 10,
+                    padding: 8,
                     backgroundColor: "rgb(31, 43, 82)",
                     borderRadius: 10,
+                    height: 45,
+                    width: 80,
                   }}
                 >
                   <NavLink
@@ -172,7 +180,6 @@ class NavMenu extends React.Component {
                     to="/"
                     href="/"
                     onClick={this.onClick}
-                    
                   >
                     Log out
                   </NavLink>
