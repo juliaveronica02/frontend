@@ -3,46 +3,56 @@ import "../App.css";
 
 function Footer() {
   return (
-    <div className="App-footer">
-      <div className="container">
-        <div className="row">
-          <div style={footerStyle} className="col-sm">
-            <h6>
-              We belive in nurturing talents, the importance of personal growth
-              and highlighting youths strengths and skills
-            </h6>
-          </div>
-          <div style={footerStyle} className="col-sm">
-            <h6>About us</h6>
-            <h6>Term and Conditions</h6>
-            <h6>Privacy Policy</h6>
-            <h6>FAQ</h6>
-            <h6>Contact Us</h6>
-          </div>
-          <div style={footerStyle} className="col-sm">
-            <h6>Subscribe</h6>
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Email Address"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
-              <div className="input-group-append">
-                <button
-                  className="btn btn-outline-light"
-                  type="button"
-                  id="button-addon2"
-                >
-                  Subscribe
-                </button>
+    <>
+      <div className="App-footer">
+        <div className="container">
+          <div className="row">
+            <div style={footerStyle} className="col-sm">
+              <h6>
+                We belive in nurturing talents, the importance of personal
+                growth and highlighting youths strengths and skills
+              </h6>
+            </div>
+            <div style={footerStyle} className="col-sm">
+              <h6>About us</h6>
+              <h6>Term and Conditions</h6>
+              <h6>Privacy Policy</h6>
+              <h6>FAQ</h6>
+              <h6>Contact Us</h6>
+            </div>
+            <div style={footerStyle} className="col-sm">
+              <h6>Subscribe</h6>
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Email Address"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <div className="input-group-append">
+                  <button
+                    className="btn btn-outline-light"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Subscribe
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div
+        className="pt-2 pb-2"
+        style={{ backgroundColor: "#aab6fe", width: "100%", height: "40px" }}
+      >
+        <h5 className="text-center copy">
+          &copy; Copyright by Ecommerce-Project 2020{" "}
+        </h5>
+      </div>
+    </>
   );
 }
 export default Footer;
