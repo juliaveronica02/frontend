@@ -14,7 +14,7 @@ import Signin from "./pages/SignIn";
 import Signup from "./pages/Signup";
 import Cart from "./components/cart/Cart";
 import Detail from "./components/detail/Detail";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer";
 import ItemSell from "./components/ItemSelling/Sell";
 import Tabel from "./components/form/Form";
 import ProductList from "./components/productDetails";
@@ -75,7 +75,7 @@ export default class App extends Component {
               <Route path="/cart" component={Cart} />
               <Route path="/checkout" component={Tabel} />
               <Route path="/sell" component={ItemSell} />
-              <Route path="/buyer" component={Pembeli}/>
+              <Route path="/buyer" component={Pembeli} />
               <Switch>
                 <PrivateRoute
                   exact
