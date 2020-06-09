@@ -5,6 +5,7 @@ import NumberFormat from "react-number-format";
 import Cartt from "./cart/Test";
 import { connect } from "react-redux";
 import { beli } from "./actioncreators/cart";
+import Swal from "sweetalert2";
 
 class Product extends React.Component {
   constructor(props) {
@@ -31,6 +32,12 @@ class Product extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+  }
+  test = () => {
+    Swal.fire({
+      icon: 'warning',
+      text: 'You must be logged in'
+    })
   }
 
   render() {
@@ -72,6 +79,7 @@ class Product extends React.Component {
               ) : (
                 <Link
                 className="btn btn-primary mr-4"
+                onClick={this.test}
                 to={`/signin`}
               >
                 Detail
