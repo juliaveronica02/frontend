@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "../img/logo.svg";
-import "./navbar-new.scss";
+// import "./navbar-new.scss";
 import redShoes from "../img/red-shoes.png";
 import shoes1 from "../img/shoes01.png";
 import shoes2 from "../img/shoes02.png";
