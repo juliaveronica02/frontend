@@ -40,6 +40,7 @@ class Login extends Component {
       [e.target.id]: e.target.value,
     });
   };
+  
   onSubmit = (e) => {
     e.preventDefault();
     const userData = {
@@ -104,6 +105,7 @@ class Login extends Component {
                         id="password"
                         size="25"
                         type="password"
+                        placeholder="Please enter your password"
                         className={classnames("form-control", {
                           invalid: errors.password || errors.passwordincorrect,
                         })}

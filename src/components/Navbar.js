@@ -4,12 +4,14 @@ import { Navbar } from "reactstrap";
 import Logo from "./img/logo.png";
 import { FaDollarSign } from "react-icons/fa";
 import PropTypes from "prop-types";
+import localForage from 'localforage'
 import Sidebar2 from "./SideBar2";
 import SideBar from "./navbarSlide";
 import "./style.css";
 import "./Navbar.css";
 
 import { connect } from "react-redux";
+import Swal from "sweetalert2";
 
 class NavMenu extends React.Component {
   constructor(props) {
@@ -85,23 +87,25 @@ class NavMenu extends React.Component {
               padding: 5,
             }}
           >
-            <li
+            {/* <li
               className="nav-item"
               style={{
                 padding: -5,
               }}
-            >
-              <NavLink className="nav-link" to="/cart">
-                <img src={Logo} width={45} alt="..." />
-              </NavLink>
+            >{localForage['keranjang'] ? 
+            <></>
+            : <NavLink className="nav-link" to="/cart">
+            <img src={Logo} width={45} alt="..." />
+          </NavLink>}
+              
             </li>
             <li
               className="nav-item"
               style={{
                 padding: 10,
               }}
-            ></li>
-            <li
+            ></li> */}
+            {/* <li
               className="nav-item"
               style={{
                 padding: 8,
@@ -119,7 +123,7 @@ class NavMenu extends React.Component {
               >
                 Sell
               </NavLink>
-            </li>
+            </li> */}
             {this.props.auth.isAuthenticated !== true ? (
               <>
                 <li
@@ -164,7 +168,14 @@ class NavMenu extends React.Component {
               <></>
             )}
             {this.props.auth.isAuthenticated === true ? (
-              <>
+              <> <li
+              className="nav-item"
+              style={{
+                padding: -5,
+              }}
+            ><NavLink className="nav-link" to="/cart">
+            <img src={Logo} width={45} alt="..." />
+          </NavLink></li>
                 <li
                   className="nav-item"
                   style={{
