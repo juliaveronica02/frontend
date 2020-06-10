@@ -38,6 +38,11 @@ class Register extends Component {
       [e.target.id]: e.target.value,
     });
   };
+  onChangePhone = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value.replace(/\D/,''),
+    });
+  };
   onSubmit = (e) => {
     // e.preventDefault();
     const newUser = {
@@ -47,7 +52,7 @@ class Register extends Component {
       password: this.state.password,
       passwordConfirm: this.state.passwordConfirm,
     };
-    this.props.registerUser(newUser, window.alert('Sign up success'), this.props.history.push("/signin"));
+    this.props.registerUser(newUser, this.props.history);
     // console.log(newUser);
   };
   render() {
@@ -106,13 +111,14 @@ class Register extends Component {
                   <div className="form-group text-left">
                   <label>Phone Number</label>
                     <input
-                      onChange={this.onChange}
+                      onChange={this.onChangePhone}
                       value={this.state.phone}
                       error={errors.phone}
                       placeholder=" Phone Number"
                       id="phone"
                       size="25"
-                      type="number"
+                      type="text"
+                      // pattern="[0-9]"
                       className={classnames("form-control", {})}
                     />
                   </div>

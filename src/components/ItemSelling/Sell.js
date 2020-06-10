@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Swal from 'sweetalert2'
 import { Card, Button, Container, Row } from "react-bootstrap";
 import './../style.css'
 import styled from "styled-components";
@@ -24,9 +25,15 @@ class Sell extends Component {
           "x-access-token": localStorage.getItem("jwtToken"),
           "Content-Type": "multipart/form-data",
         },
-      }, window.alert('sukses'))
+      },
+      Swal.fire({
+        icon: 'success',
+        title: 'Item Has Been Added'
+      })
+      )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+      
   };
   render() {
     return (
