@@ -46,8 +46,14 @@ class NavMenu extends React.Component {
 
     if (isMobile) {
       return (
-    <div className="Navbar">
+        <div>
         {/* Navbar */}
+        
+      </div>
+      );
+    }
+    return(
+    <div className="Navbar">
         <nav>
             <div className="brand">
               <img src={logo} a lt="store" className="navbar-brand" />
@@ -58,11 +64,6 @@ class NavMenu extends React.Component {
               <li><a>Sign Out</a></li>
             </ul>
         </nav>
-      </div>
-      );
-    }
-    return(
-      <div>
          {/* Hero */}
          <div id="hero">
           <div className="hero-left">
@@ -130,7 +131,7 @@ class NavMenu extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+        </div>
     )
   }
 }
