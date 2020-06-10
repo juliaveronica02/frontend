@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import './footer-baru.css'
 import {
   FaFacebook,
   FaInstagram,
@@ -6,109 +7,79 @@ import {
   FaLine,
   FaYoutube,
 } from "react-icons/fa";
-import "./footer.css";
-import styled, { withTheme } from "styled-components";
-
-export default class Footer extends Component {
-  render() {
-    return (
-      <FooterWrapper>
-        <div className="row mt-4 pb-4" style={{margin: 0}}>
-          <div className="col-4">
-            <h3 className="font-weight-bold mb-3 pay">Payment</h3>
-            <img
-              className="payment"
-              src={require("../img/bca.jpeg")}
-              alt="bca"
-            />
-            <img
-              className="payment"
-              src={require("../img/mandiri.png")}
-              alt="Mandiri"
-            />
-            <img
-              className="payment"
-              src={require("../img/cimbniaga.jpeg")}
-              alt="Cimb Niaga"
-            />
-            <img
-              className="payment"
-              src={require("../img/bpr.jpg")}
-              alt="BPR"
-            />
-            <img
-              className="payment"
-              src={require("../img/indomaret.png")}
-              alt="Indomaret"
-            />
-            <img
-              className="payment"
-              src={require("../img/alfamart.jpg")}
-              alt="Alfamart"
-            />
-            <img
-              className="payment"
-              src={require("../img/bri.png")}
-              alt="BRI"
-            />
-            <img
-              className="payment"
-              src={require("../img/ovo.jpg")}
-              alt="OVO"
-            />
-          </div>
-          <div className="col-4 ">
-            <h3 className="font-weight-bold mb-3 del">Delivery</h3>
-            <img
-              className="delivery mt-2"
-              src={require("../img/jne.jpeg")}
-              alt="Jne"
-            />
-            <img
-              className="delivery"
-              src={require("../img/posindonesia.png")}
-              alt="Pos Indonesia"
-            />
-            <img
-              className="delivery"
-              src={require("../img/jnt.jpg")}
-              alt="JNT"
-            />
-            <img
-              className="delivery"
-              src={require("../img/tiki.jpg")}
-              alt="TIKI"
-            />
-          </div>
-          <div className="col-4">
-            <h3 className="font-weight-bold mb-3 space-between ml-4 fol">
-              Follow Us
-            </h3>
-            <div style={{ 
-              color: "black"
-               }}>
-              <FaFacebook size={40} />
-              <FaInstagram size={40}  />
-              <FaTwitter size={40} />
-              <FaLine size={40}/>
-              <FaYoutube size={40}  />
+function Footer() {
+  return (
+    <>
+      <div
+        className="text-center"
+        style={{
+          color: "black",
+          backgroundColor: "#aab6fe",
+        }}
+      >
+        <FaFacebook size={40} />
+        <FaInstagram size={40} />
+        <FaTwitter size={40} />
+        <FaLine size={40} />
+        <FaYoutube size={40} />
+      </div>
+      <div className="App-footer">
+        <div className="container">
+          <div className="row">
+            <div style={footerStyle} className="col-sm">
+              <h6>
+                We belive in nurturing talents, the importance of personal
+                growth and highlighting youths strengths and skills
+              </h6>
+            </div>
+            <div style={footerStyle} className="col-sm">
+              <h6>About us</h6>
+              <h6>Term and Conditions</h6>
+              <h6>Privacy Policy</h6>
+              <h6>FAQ</h6>
+              <h6>Contact Us</h6>
+            </div>
+            <div style={footerStyle} className="col-sm">
+              <h6>Subscribe</h6>
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Email Address"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <div className="input-group-append">
+                  <button
+                    className="btn btn-outline-light"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="pt-2 pb-2" style={{ backgroundColor: "#aab6fe" }}>
-          <h5 className="text-center copy">
-            &copy; Copyright by Ecommerce-Project 2020{" "}
-          </h5>
-        </div>
-      </FooterWrapper>
-    );
-  }
-}
+      </div>
 
-const FooterWrapper = styled.nav`
-  background: #d1d9ff;
-  color: black;
-  padding-top: 4px;
-  text-align: center;
-  font-family: "Crimson Pro", serif;
-`;
+      <div
+        className="pt-2 pb-2"
+        style={{ backgroundColor: "#aab6fe", width: "100%", height: "40px" }}
+      >
+        <h5 className="text-center copy">
+          &copy; Copyright by Ecommerce-Project 2020{" "}
+        </h5>
+      </div>
+    </>
+  );
+}
+export default Footer;
+
+const footerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  marginTop: "20px",
+  marginBottom: "30px",
+};

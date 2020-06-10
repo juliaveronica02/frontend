@@ -4,6 +4,10 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+  rel="stylesheet"
+></link>;
 
 ReactDOM.render(
   <React.StrictMode>
