@@ -1,6 +1,6 @@
 import React from "react";
 
-import SignUp from "../components/signUp";
+import SignUp from "../Components/Form/signUp";
 
 function Signup() {
   return (
