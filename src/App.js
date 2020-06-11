@@ -3,23 +3,19 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
 import { setCurrentUser, logoutUser } from "./action/auth";
-import ScrollTop from "./components/scrollTop";
 import localforage from "localforage";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import PrivateRoute from "./config/privateRoute";
+import PrivateRoute from "./config/privateRouter";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Signin from "./pages/SignIn";
 import Signup from "./pages/Signup";
-import Cart from "./components/cart/Cart";
-import Detail from "./components/detail/Detail";
-import Footer from "./components/Footer";
-import ItemSell from "./components/ItemSelling/Sell";
-import Tabel from "./components/form/Form";
-import ProductList from "./components/productDetails";
-import NavMenu from "./components/Navbar.js";
-import Pembeli from "./components/Pembeli/Pembeli";
+import Detail from "./Pages/Detail/Detail";
+import Footer from "./Components/Footer/Footer";
+import ItemSell from "./Pages/Sells/Sells";
+import ProductList from "./Pages/Product/productDetails";
+import NavMenu from "./Components/Navbar/Navbar.js";
 // import { Tab } from "react-bootstrap";
 // import Carousel from "./components/carousel/Carousel";
 // import Login from "./components/login/Login2";
@@ -62,7 +58,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <ScrollTop>
+          {/* <ScrollTop> */}
             <div>
               <NavMenu />
             </div>
@@ -72,10 +68,9 @@ export default class App extends Component {
               <Route exact path="/signin" component={Signin} />
               <Route exact path="/about" component={About} />
               <Route path="/item/:id" component={Detail} />
-              <Route path="/cart" component={Cart} />
-              <Route path="/checkout" component={Tabel} />
+              {/* <Route path="/cart" component={Cart} /> */}
+              {/* <Route path="/checkout" component={Tabel} /> */}
               <Route path="/sell" component={ItemSell} />
-              <Route path="/buyer" component={Pembeli} />
               <Switch>
                 <PrivateRoute
                   exact
@@ -85,7 +80,7 @@ export default class App extends Component {
               </Switch>
             </div>
             <Footer />
-          </ScrollTop>
+          {/* </ScrollTop> */}
         </Router>
       </Provider>
     );

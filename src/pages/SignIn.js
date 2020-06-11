@@ -1,13 +1,11 @@
 import React from "react";
 
-import SignIn from "../components/signIn";
-import Footer from "../components/Footer";
+import SignIn from "../Components/Form/signIn";
 
 function Signin() {
   return (
     <div>
       <SignIn />
-      {/* <Footer /> */}
     </div>
   );
 }
