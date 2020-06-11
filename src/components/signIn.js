@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { loginUser } from "../action/auth";
 import classnames from "classnames";
 import Logo from "./img/logo.png";
-import React from "react";
 import "./SignIn.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../App.css";

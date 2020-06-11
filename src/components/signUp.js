@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../action/auth";
-import React from "react";
 import "./SignIn.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import classnames from "classnames";
