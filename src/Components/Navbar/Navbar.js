@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import { Navbar } from "reactstrap";
 import logo from "../../img/logo.svg";
 import SideBar from "./navbarSlide";
-import localForage from 'localforage'
-import PropTypes from "prop-types";
-import Swal from "sweetalert2";
+// import localForage from 'localforage'
+// import PropTypes from "prop-types";
+// import Swal from "sweetalert2";
 import {connect} from 'react-redux'
 // import "./navbar.scss";
 // import "./style.css";

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import axios from "axios";
 import "./detail.css";
-// import Cartt from "./../cart/Test";
+import Cart from "./../Cart/Cart";
 import { connect } from "react-redux";
 // import { beli } from "../actioncreators/cart";
 
@@ -50,7 +50,7 @@ const Detail = () => {
               <p className="lead font-weight-bold">Description</p>
               <p>{data.description}</p>
               <div className="d-flex justify-content-left">
-                {/* <Cartt key={data.id} cart={data} /> */}
+                <Cart key={data.id} cart={data} />
               </div>
             </div>
           </Col>

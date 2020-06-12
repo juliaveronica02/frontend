@@ -167,24 +167,24 @@ const mapStateToProps = (state) => ({
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Product)
 
-const slideStyle = {
-  display: "block",
-  width: "100%",
-  maxHeight: "360px",
-  borderRadius: "8px",
-};
+// const slideStyle = {
+//   display: "block",
+//   width: "100%",
+//   maxHeight: "360px",
+//   borderRadius: "8px",
+// };
 const slideStyles = {
   display: "block",
   width: "100%",
   maxHeight: "360px",
   borderRadius: "8px",
 };
-const container = {
-  paddingRight: "0px",
-  paddingLeft: "0px",
-  marginLeft: "auto",
-  marginRight: "auto",
-};
+// const container = {
+//   paddingRight: "0px",
+//   paddingLeft: "0px",
+//   marginLeft: "auto",
+//   marginRight: "auto",
+// };
 const imageStyle = {
   display: "block",
   margin: "15px",
