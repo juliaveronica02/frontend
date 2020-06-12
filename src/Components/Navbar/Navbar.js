@@ -1,7 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { Navbar } from "reactstrap";
 import logo from "../../img/logo.svg";
 import SideBar from "./navbarSlide";
-import "./navbar.scss";
+import localForage from 'localforage'
+import PropTypes from "prop-types";
+import Swal from "sweetalert2";
+// import "./navbar.scss";
+// import "./style.css";
 
 export default class NavMenu extends React.Component {
   constructor(props) {
@@ -19,6 +25,10 @@ export default class NavMenu extends React.Component {
 
   handleWindowSizeChange = () => {
     this.setState({ width: window.innerWidth });
+  };
+  onClick = () => {
+    localStorage.clear();
+    window.location.reload(false);
   };
   render() {
     const { width } = this.state;
@@ -40,21 +50,85 @@ export default class NavMenu extends React.Component {
           </div>
         </div>
       );
-    } else {
+    }
+    else {
       return (
-        <div className="Navbar">
-        {/* Navbar */}
-        <nav>
-            <div className="brand">
-              <img src={logo} a lt="store" className="navbar-brand" />
-            </div>
-            <ul className="menu-list">
-              <li><a className="active" href="#Cart">Cart</a></li>
-              <li><a href="#signIn">Sign In</a></li>
-              <li><a href="#signUp">Sign Up</a></li>
-            </ul>
-        </nav>
-      </div>
+        <Navbar
+          color="white"
+          className="fixed-top"
+          style={{
+            position: " ",
+            width: "100%",
+            boxShadow: "0 2px 6px 0 rgba(0,0,0,.2)",
+            margin:0,
+          }}
+          light
+          expand="md"
+        >
+          <NavLink className="navbar-brand" to="/">
+          <img src={logo} alt="..." style={{ width: 100 }} />
+          </NavLink>
+          <ul
+            className="ml-auto navbar-nav" >
+            {this.props.auth.isAuthenticated !== true ? (
+              <>
+            <li
+              className="nav-item"
+            >
+              <NavLink
+                style={{ color: "black" }}
+                className="nav-link"
+                to="/signin"
+              >
+                Signin
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                style={{ color: "black" }}
+                className="nav-link"
+                to="/signup"
+              >
+                Signup
+              </NavLink>
+            </li>
+            </>
+            ):(
+              <></>
+            )}
+              {this.props.auth.isAuthenticated === true ? (
+                <>
+             <li
+              className="nav-item">
+              <NavLink  style={{ color: "black" }} className="nav-link" to="/cart">
+                Cart
+              </NavLink>
+            </li>
+            <li
+                  className="nav-item"
+                  style={{
+                    padding: 10,
+                    backgroundColor: "rgb(31, 43, 82)",
+                    borderRadius: 10,
+                    marginRight: 10,
+                  }}
+                >
+                  <NavLink
+                    style={{ color: "white" }}
+                    className="nav-link"
+                    to="/"
+                    href="/"
+                    onClick={this.onClick}
+                  >
+                    Log out
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
+          </ul>
+        </Navbar>
       );
     }
   }
