@@ -6,10 +6,11 @@ import SideBar from "./navbarSlide";
 import localForage from 'localforage'
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import {connect} from 'react-redux'
 // import "./navbar.scss";
 // import "./style.css";
 
-export default class NavMenu extends React.Component {
+class NavMenu extends React.Component {
   constructor(props) {
     super();
     this.state = {
@@ -133,3 +134,8 @@ export default class NavMenu extends React.Component {
     }
   }
 }
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps)(NavMenu);
