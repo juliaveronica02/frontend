@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 import { Navbar } from "reactstrap";
 import logo from "../../img/logo.svg";
 import SideBar from "./navbarSlide";
+import localForage from 'localforage'
+import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 // import "./navbar.scss";
 // import "./style.css";
 
@@ -22,6 +25,10 @@ export default class NavMenu extends React.Component {
 
   handleWindowSizeChange = () => {
     this.setState({ width: window.innerWidth });
+  };
+  onClick = () => {
+    localStorage.clear();
+    window.location.reload(false);
   };
   render() {
     const { width } = this.state;
@@ -63,12 +70,8 @@ export default class NavMenu extends React.Component {
           </NavLink>
           <ul
             className="ml-auto navbar-nav" >
-            <li
-              className="nav-item">
-              <NavLink  style={{ color: "black" }} className="nav-link" to="/cart">
-                Cart
-              </NavLink>
-            </li>
+            {this.props.auth.isAuthenticated !== true ? (
+              <>
             <li
               className="nav-item"
             >
@@ -89,6 +92,41 @@ export default class NavMenu extends React.Component {
                 Signup
               </NavLink>
             </li>
+            </>
+            ):(
+              <></>
+            )}
+              {this.props.auth.isAuthenticated === true ? (
+                <>
+             <li
+              className="nav-item">
+              <NavLink  style={{ color: "black" }} className="nav-link" to="/cart">
+                Cart
+              </NavLink>
+            </li>
+            <li
+                  className="nav-item"
+                  style={{
+                    padding: 10,
+                    backgroundColor: "rgb(31, 43, 82)",
+                    borderRadius: 10,
+                    marginRight: 10,
+                  }}
+                >
+                  <NavLink
+                    style={{ color: "white" }}
+                    className="nav-link"
+                    to="/"
+                    href="/"
+                    onClick={this.onClick}
+                  >
+                    Log out
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
           </ul>
         </Navbar>
       );

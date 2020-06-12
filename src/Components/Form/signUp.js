@@ -19,7 +19,7 @@ class Register extends Component {
       email: "",
       phone: "",
       password: "",
-      password2: "",
+      passwordConfirm: "",
       errors: {},
     };
   }
@@ -40,6 +40,11 @@ class Register extends Component {
       [e.target.id]: e.target.value,
     });
   };
+  onChangePhone = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value.replace(/\D/,''),
+    });
+  };
   onSubmit = (e) => {
     e.preventDefault();
     const newUser = {
@@ -47,7 +52,7 @@ class Register extends Component {
       email: this.state.email,
       phone: this.state.phone,
       password: this.state.password,
-      password2: this.state.password2,
+      passwordConfirm: this.state.passwordConfirm,
     };
     this.props.registerUser(newUser, this.props.history);
     console.log(newUser);
@@ -79,6 +84,8 @@ class Register extends Component {
               onChange={this.onChange}
               value={this.state.name}
               error={errors.name}
+              id="name"
+              size="25"
               className={classnames("form-control wider", {
                 invalid: errors.name || errors.namenotfound,
               })}
@@ -90,7 +97,7 @@ class Register extends Component {
               type="text"
               name="phone"
               placeholder="Phone"
-              onChange={this.onChange}
+              onChange={this.onChangePhone}
               value={this.state.phone}
               error={errors.phone}
               className={classnames("form-control wider", {
@@ -133,10 +140,10 @@ class Register extends Component {
               name="password"
               placeholder="Confirm Password"
               onChange={this.onChange}
-              value={this.state.password2}
-              error={errors.password2}
+              value={this.state.passwordConfirm}
+              error={errors.passwordConfirm}
               className={classnames("form-control wider", {
-                invalid: errors.password2 || errors.password2notfound,
+                invalid: errors.passwordConfirm || errors.passwordConfirm,
               })}
             />
             </FormGroup>

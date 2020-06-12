@@ -2,20 +2,35 @@ import axios from "axios";
 import setAuthToken from "../utils/authToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
+import Swal from 'sweetalert2'
+
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
-  console.log("user", userData);
+  // console.log("user", userData);
 
   axios
     .post(`${process.env.REACT_APP_API_URL_REGISTER}`, userData)
-    .then((res) => history.push("/signin")) // re-direct to login on successful register
-    .catch((err) => {
-      console.log("error", err);
-      dispatch({
-        type: GET_ERRORS,
-        // payload: err.response.data,
-      });
-    });
+    .then((res) => {
+      Swal.fire({
+        icon: `success`,
+        title: `Sukses`,
+        // text: `Something Went Wrong!`
+      })
+      history.push("/signin")
+    })
+    // .catch((err) => {
+    //   console.log("error", err);
+    //   dispatch({
+    //     type: GET_ERRORS,
+    //     payload: err.response.data,
+    //   },
+    //   );
+    // });
+    .catch(err => Swal.fire({
+      icon: `error`,
+      title: `Sorry`,
+      text: `Something Went Wrong!`
+    }))
 };
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
@@ -35,9 +50,28 @@ export const loginUser = (userData) => (dispatch) => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // Set current user
-      dispatch(setCurrentUser(decoded));
+      dispatch(setCurrentUser(decoded), 
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Success'
+      })
+      );
+
     })
-    .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response }));
+    .catch((err) => {
+      dispatch({type: GET_ERRORS, payload: err.response },
+        Swal.fire({
+            icon: `error`,
+            title: `Sorry`,
+            text: `Something Went Wrong!`
+          })
+     )}
+    );
+    // .catch((err) =>  Swal.fire({
+    //   icon: `error`,
+    //   title: `Sorry`,
+    //   text: `Something Went Wrong!`
+    // }))
 };
 // Set logged in user
 export const setCurrentUser = (decoded) => {
