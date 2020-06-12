@@ -53,6 +53,7 @@ export default class NavMenu extends React.Component {
             position: " ",
             width: "100%",
             boxShadow: "0 2px 6px 0 rgba(0,0,0,.2)",
+            margin:0,
           }}
           light
           expand="md"
