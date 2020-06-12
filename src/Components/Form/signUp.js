@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../action/auth";
 import classnames from "classnames";
-
-import Logo from "../../img/logo.png";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 

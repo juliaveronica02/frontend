@@ -20,7 +20,7 @@ class Product extends React.Component {
     console.log(localStorage.getItem("jwtToken"));
     axios
       .get(
-        `${process.env.REACT_APP_API_URL_PRODUCT}`,
+        `${process.env.REACT_APP_API_URL_ITEM}`,
         {
           headers: {
             "x-access-token": localStorage.getItem("jwtToken"),
@@ -72,25 +72,12 @@ class Product extends React.Component {
             </p>
           </div>
           <div className="card-footer d-flex flex-row justify-content-center">
-            {this.props.auth.isAuthenticated === true ? (
-              <Link
+            <Link
               className="btn btn-primary mr-4"
               to={`/item/${listProduct.id}`}
             >
               Detail
             </Link>
-            ) : (
-              <Link
-              className="btn btn-primary mr-4"
-              onClick={this.test}
-              to={`/signin`}
-            >
-              Detail
-            </Link>
-            )}
-            {this.props.auth.isAuthenticated === true ? 
-            {/* <Cartt key={listProduct.id} cart={listProduct} /> */}
-            : (<></>)}
           </div>
         </div>
       </div>
@@ -178,26 +165,26 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
-export default connect(null,mapDispatchToProps)(Product)
+export default connect(mapStateToProps,mapDispatchToProps)(Product)
 
-const slideStyle = {
-  display: "block",
-  width: "100%",
-  maxHeight: "360px",
-  borderRadius: "8px",
-};
+// const slideStyle = {
+//   display: "block",
+//   width: "100%",
+//   maxHeight: "360px",
+//   borderRadius: "8px",
+// };
 const slideStyles = {
   display: "block",
   width: "100%",
   maxHeight: "360px",
   borderRadius: "8px",
 };
-const container = {
-  paddingRight: "0px",
-  paddingLeft: "0px",
-  marginLeft: "auto",
-  marginRight: "auto",
-};
+// const container = {
+//   paddingRight: "0px",
+//   paddingLeft: "0px",
+//   marginLeft: "auto",
+//   marginRight: "auto",
+// };
 const imageStyle = {
   display: "block",
   margin: "15px",
