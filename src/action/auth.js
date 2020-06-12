@@ -13,7 +13,7 @@ export const registerUser = (userData, history) => (dispatch) => {
     .then((res) => {
       Swal.fire({
         icon: `success`,
-        title: `Sukses`,
+        title: `Register Success`,
         // text: `Something Went Wrong!`
       })
       history.push("/signin")
@@ -29,7 +29,7 @@ export const registerUser = (userData, history) => (dispatch) => {
     .catch(err => Swal.fire({
       icon: `error`,
       title: `Sorry`,
-      text: `Something Went Wrong!`
+      text: `Server is Busy`
     }))
 };
 // Login - get user token
@@ -56,16 +56,20 @@ export const loginUser = (userData) => (dispatch) => {
         title: 'Login Success'
       })
       );
-
+      
     })
     .catch((err) => {
+      
       dispatch({type: GET_ERRORS, payload: err.response },
         Swal.fire({
             icon: `error`,
             title: `Sorry`,
-            text: `Something Went Wrong!`
+            text: `Incorrect Email or Password`
           })
-     )}
+     )
+     
+    }
+     
     );
     // .catch((err) =>  Swal.fire({
     //   icon: `error`,
