@@ -52,7 +52,7 @@ class Register extends Component {
       passwordConfirm: this.state.passwordConfirm,
     };
     this.props.registerUser(newUser, this.props.history);
-    console.log(newUser);
+    // console.log(newUser);
   };
   render() {
     const { errors } = this.state;
@@ -92,7 +92,7 @@ class Register extends Component {
           <h5 className="font-weight-bold">Phone</h5>
             <Input
               type="text"
-              name="phone"
+              id="phone"
               placeholder="Phone"
               onChange={this.onChangePhone}
               value={this.state.phone}
@@ -106,7 +106,7 @@ class Register extends Component {
             <h5 className="font-weight-bold">Email</h5>
             <Input
               type="email"
-              name="email"
+              id="email"
               placeholder="Email"
               onChange={this.onChange}
               value={this.state.email}
@@ -120,8 +120,8 @@ class Register extends Component {
             <h5 className="font-weight-bold">Password</h5>
             <Input
               type="password"
-              name="password"
-              placeholder="Password"
+              id="password"
+              placeholder="Password must be at least 8 characters"
               onChange={this.onChange}
               value={this.state.password}
               error={errors.password}
@@ -134,8 +134,8 @@ class Register extends Component {
             <h5 className="font-weight-bold">Confirm Password</h5>
             <Input
               type="password"
-              name="password"
-              placeholder="Confirm Password"
+              id="passwordConfirm"
+              placeholder="Retype your password"
               onChange={this.onChange}
               value={this.state.passwordConfirm}
               error={errors.passwordConfirm}
@@ -144,12 +144,12 @@ class Register extends Component {
               })}
             />
             </FormGroup>
-            <FormGroup check>
+            {/* <FormGroup check>
             <Label check>
               <Input type="checkbox" />
               Remember Me
             </Label>
-          </FormGroup>
+          </FormGroup> */}
           <Button className="button center text-align-center box-wrapper" type="submit">
               Sign Up</Button>
           </Form>
