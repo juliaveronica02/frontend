@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import PrivateRoute from "./config/privateRouter";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
+import About from "./pages/About";
 import Signin from "./Pages/SignIn";
 import Signup from "./Pages/Signup";
 import Detail from "./Pages/Detail/Detail";
