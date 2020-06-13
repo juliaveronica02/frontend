@@ -1,6 +1,6 @@
 import React from "react";
-import Background from "../../img/shoes.webp";
-import Typed from "react-typed";
+// import Background from "../../img/shoes.webp";
+// import Typed from "react-typed";
 import redShoes from "../../img/red-shoes.png";
 import "./navbar.scss";
 import Home from "../../Pages/Home/Home"

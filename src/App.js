@@ -7,15 +7,16 @@ import localforage from "localforage";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import PrivateRoute from "./config/privateRouter";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Signin from "./pages/SignIn";
-import Signup from "./pages/Signup";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Signin from "./Pages/SignIn";
+import Signup from "./Pages/Signup";
 import Detail from "./Pages/Detail/Detail";
 import Footer from "./Components/Footer/Footer";
 import ItemSell from "./Pages/Sells/Sells";
 import ProductList from "./Pages/Product/productDetails";
 import NavMenu from "./Components/Navbar/Navbar.js";
+import Cart from './Pages/Cart/index'
 // import { Tab } from "react-bootstrap";
 // import Carousel from "./components/carousel/Carousel";
 // import Login from "./components/login/Login2";
@@ -68,7 +69,7 @@ export default class App extends Component {
               <Route exact path="/signin" component={Signin} />
               <Route exact path="/about" component={About} />
               <Route path="/item/:id" component={Detail} />
-              {/* <Route path="/cart" component={Cart} /> */}
+              <Route path="/cart" component={Cart} />
               {/* <Route path="/checkout" component={Tabel} /> */}
               <Route path="/sell" component={ItemSell} />
               <Switch>

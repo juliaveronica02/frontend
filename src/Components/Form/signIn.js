@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../action/auth";
 import classnames from "classnames";
-import Logo from "../../img/logo.png";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
@@ -68,7 +67,8 @@ class Login extends Component {
         <Form onSubmit={this.onSubmit}>
             <FormGroup>
             <h5 className="font-weight-bold">Email</h5>
-              <Input type="email" name="email" placeholder="Email" onChange={this.onChange} value={this.state.email} 
+              <Input type="email" name="email" placeholder="Email" onChange={this.onChange}  id="email"
+                        size="25" value={this.state.email} 
               error={errors.email} className={classnames("form-control wider", {
                 invalid: errors.email || errors.emailnotfound,
               })} />
@@ -76,6 +76,8 @@ class Login extends Component {
               <FormGroup>
             <h5 className="font-weight-bold">Password</h5>
                 <Input type="password" name="password" placeholder="Password" onChange={this.onChange} value={this.state.password} 
+                 id="password"
+                 size="25"
                 className={classnames("form-control", {
                   invalid: errors.password || errors.passwordincorrect,
                 })}

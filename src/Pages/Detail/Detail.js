@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import axios from "axios";
 import "./detail.css";
-// import Cartt from "./../cart/Test";
+import Cart from "./../Cart/Cart";
 import { connect } from "react-redux";
 // import { beli } from "../actioncreators/cart";
 
@@ -14,7 +14,7 @@ const Detail = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL_PRODUCT}/${id}`, {
+      .get(`${process.env.REACT_APP_API_URL_ITEM}/${id}`, {
         headers: {
           "x-access-token": localStorage.getItem("jwtToken"),
         },
@@ -24,18 +24,14 @@ const Detail = () => {
         setData(data);
       });
   }, [id]);
-  // const testimage = "https://i.imgur.com/tq4h23x.jpg";
   const showDetail = [data].map((item) => {
-    const URL = "http://3.136.102.205/";
     return (
       <Container className="dark-grey-text mt-5 pt-5" fluid>
         <Row key={item.id}>
           <Col md={6} mb={4} className="d-flex justify-content-center mt-4">
             <Image
-              src={`${process.env.REACT_APP_API_URL}${item.imageUrl}`}
-              // src={testimage}
+              src={`${process.env.REACT_APP_API_URL_SERVER}/${item.imageUrl}`}
               alt="Gambar"
-              // style={{height: "400px", justifyContent: "center"}}
               fluid
             />
           </Col>
@@ -54,7 +50,7 @@ const Detail = () => {
               <p className="lead font-weight-bold">Description</p>
               <p>{data.description}</p>
               <div className="d-flex justify-content-left">
-                {/* <Cartt key={data.id} cart={data} /> */}
+                <Cart key={data.id} cart={data} />
               </div>
             </div>
           </Col>
@@ -94,7 +90,6 @@ const Detail = () => {
               />
             </div>
           </div>
-
       </Container>
     );
   });
