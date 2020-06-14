@@ -90,12 +90,18 @@ class Login extends Component {
                         validate
                         error="wrong"
                         success="right"
+                        id="email"
+                        onChange={this.onChange}
+                        value={this.state.email}
                       />
                       <MDBInput
                         label="Type your password"
                         icon="lock"
                         group
                         type="password"
+                        id="password"
+                        onChange={this.onChange}
+                        value={this.state.password}
                         validate
                       />
                     </div>
@@ -105,7 +111,7 @@ class Login extends Component {
                         Remember Me
                       </Label>
                       <div className="text-center">
-                        <MDBBtn color="primary">Login</MDBBtn>
+                        <MDBBtn color="primary" type="submit">Login</MDBBtn>
                       </div>
                     </FormGroup>
                   </form>
