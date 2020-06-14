@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import NumberFormat from 'react-number-format'
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
+import './navbar.scss'
 // import Cartt from "./Cart/Test";
 // import Cartt from './cart/Test'
 // import {beli} from './actioncreators/cart'
@@ -48,39 +49,66 @@ class Product extends React.Component {
     const isMobile = width <= 500;
     const showData = this.state.products.map((listProduct) => {
       return (
-        <div className="col-lg-3 col-md-6 mb-4">
-        <div className="card" key={listProduct.id}>
-          <div className="box">
-            <img
-              src={`https://api.juliaveronica.com/${listProduct.imageUrl}`}
-              // src={require(`https://api.juliaveronica.com/${item.imageUrl}`)}
-              alt={listProduct.name}
-              className="card-img-top"
-              style={{ height: "200px", width: "100%" }}
-            />
-          </div>
-          <div className="card-body pt-0">
-            <h5>{listProduct.name}</h5>
-            <p>Remaining Stock : {listProduct.quantity}</p>
-            <p>
-              <NumberFormat
-                value={listProduct.price}
-                displayType="text"
-                thousandSeparator={true}
-                prefix={"Rp "}
-              />
-            </p>
-          </div>
-          <div className="card-footer d-flex flex-row justify-content-center">
-            <Link
-              className="btn btn-primary mr-4"
-              to={`/item/${listProduct.id}`}
-            >
-              Detail
-            </Link>
+        <div id="catalog">
+          <div className="white-box">
+          <div className="catalog-content">
+            <div className="product-list">
+              <div className="fadeIn product">
+                <div className="product-image">
+                  <img src={`https://api.juliaveronica.com/${listProduct.imageUrl}`} alt="shoes2" />
+                </div>
+                <div className="product-description">
+                  <div className="product-title">
+                    <h3>{listProduct.name}</h3>
+                    <p>Stock : {listProduct.quantity}</p>
+                  </div>
+                  <div className="product-prize">
+                        <NumberFormat
+                      value={listProduct.price}
+                      displayType="text"
+                      thousandSeparator={true}
+                      prefix={"Rp "}
+                    />
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      //   <div className="col-lg-3 col-md-6 mb-4">
+      //   <div className="card" key={listProduct.id}>
+      //     <div className="box">
+      //       <img
+      //         src={`https://api.juliaveronica.com/${listProduct.imageUrl}`}
+      //         // src={require(`https://api.juliaveronica.com/${item.imageUrl}`)}
+      //         alt={listProduct.name}
+      //         className="card-img-top"
+      //         style={{ height: "200px", width: "100%" }}
+      //       />
+      //     </div>
+      //     <div className="card-body pt-0">
+      //       <h5>{listProduct.name}</h5>
+      //       <p>Remaining Stock : {listProduct.quantity}</p>
+      //       <p>
+      //         <NumberFormat
+      //           value={listProduct.price}
+      //           displayType="text"
+      //           thousandSeparator={true}
+      //           prefix={"Rp "}
+      //         />
+      //       </p>
+      //     </div>
+      //     <div className="card-footer d-flex flex-row justify-content-center">
+      //       <Link
+      //         className="btn btn-primary mr-4"
+      //         to={`/item/${listProduct.id}`}
+      //       >
+      //         Detail
+      //       </Link>
+      //     </div>
+      //   </div>
+      // </div>
     );
   });
   console.log(this.state.products);
