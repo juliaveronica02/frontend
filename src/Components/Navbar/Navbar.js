@@ -6,10 +6,15 @@ import SideBar from "./navbarSlide";
 import localForage from 'localforage'
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { connect } from "react-redux";
 // import "./navbar.scss";
 // import "./style.css";
 
-export default class NavMenu extends React.Component {
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+class NavMenu extends React.Component {
   constructor(props) {
     super();
     this.state = {
@@ -31,6 +36,7 @@ export default class NavMenu extends React.Component {
     window.location.reload(false);
   };
   render() {
+    
     const { width } = this.state;
     const isMobile = width <= 500;
 
@@ -100,7 +106,7 @@ export default class NavMenu extends React.Component {
                 <>
              <li
               className="nav-item">
-              <NavLink  style={{ color: "black" }} className="nav-link" to="/cart">
+              <NavLink style={{ color: "black" }} className="nav-link" to="/cart">
                 Cart
               </NavLink>
             </li>
@@ -133,3 +139,5 @@ export default class NavMenu extends React.Component {
     }
   }
 }
+
+export default connect(mapStateToProps)(NavMenu);
