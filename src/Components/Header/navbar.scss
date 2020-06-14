@@ -18,20 +18,24 @@ $font-header: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: $font-body;
   font-weight: 300;
   font-size: 16px;
   background-color: $off-white;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: $font-header;
 }
 
-// Header 
+// Header
 nav {
-  display:block;
+  display: block;
   width: 100%;
   height: 70px;
   padding: 0 150px;
@@ -66,7 +70,7 @@ nav {
 // Hero
 #hero {
   width: 100%;
-  height: 100vh;
+  height: 10vh;
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: center;
@@ -101,8 +105,7 @@ nav {
     }
   }
 
-  .hero-right{
-
+  .hero-right {
     img {
       width: 120%;
       margin-left: 10px;
@@ -128,44 +131,48 @@ nav {
   }
 
   .catalog-content {
-     margin: 0 150px;
-     position: relative;
-     z-index: 99;
-     
-     .product-list {
-       display: grid;
-       grid-template-columns: repeat(3, 33%);
-       grid-gap: 1rem;
-       
+    margin: 0 150px;
+    position: relative;
+    z-index: 99;
 
-       .product {
-         background-color: #ebebeb;
-         border: rgb(235, 235, 235);
-       }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(3, 33%);
+      grid-gap: 1rem;
 
-       .product-image {
-         img {
-           height: 350px;
-           width: 100%; 
-           object-fit: cover;
-         }
-       }
+      .product {
+        background-color: #ebebeb;
+        border: rgb(235, 235, 235);
+      }
 
-       .product-description {
-         background-color: $white;
-         display: flex;
-         justify-content: center;
-         height: 150px;
-         padding: 1rem 2rem 3rem 2rem ;
-       }
+      .product-image {
+        img {
+          height: 350px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
 
-       .product-title {
+      .product-description {
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        height: 150px;
+        padding: 1rem 2rem 3rem 2rem;
+      }
 
+      .product-title {
         h3 {
           margin-bottom: 1rem;
         }
-         
-       }
-     }
+      }
+    }
   }
 }
+// Home.js //
+.arrival {
+  text-align: center;
+}
+
+
+
