@@ -9,7 +9,7 @@ export const registerUser = (userData, history) => (dispatch) => {
   // console.log("user", userData);
 
   axios
-    .post(`${process.env.REACT_APP_API_URL_REGISTER}`, userData)
+    .post(`https://api.juliaveronica.com/users/register`, userData)
     .then((res) => {
       Swal.fire({
         icon: `success`,
@@ -30,6 +30,12 @@ export const registerUser = (userData, history) => (dispatch) => {
       console.error(err.response)
       if(err.response.status === 400){
         Swal.fire('Please fill All the Field')
+      }
+      else if(err.response.status === 401){
+        Swal.fire('Email already Registered')
+      }
+      else if(err.response.status === 402){
+        Swal.fire('Phone Already in Use')
       }
       else{dispatch({
         type: GET_ERRORS,
