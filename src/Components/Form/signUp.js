@@ -73,67 +73,63 @@ class Register extends Component {
             and scrambled it to make a type specimen book.
           </p>
         </container>
-          <div className="logo">
+        <div className="logo">
           {/* <img src={logo} alt="Logo Trishop" style={{ width: 75, paddingTop: 150 }} /> */}
-          </div>
+        </div>
         <div className="form">
-                  <Form obSubmit={this.onSubmit}>
+          <Form obSubmit={this.onSubmit}>
             <MDBContainer>
               <MDBRow>
                 <MDBCol md="10">
-                    <p className="h5 text-center mb-4">Sign up</p>
-                    <div className="grey-text">
-                      <MDBInput
-                        label="Your name"
-                        icon="user"
-                        group
-                        type="text"
-                        onChange={this.onChange}
-                        value={this.state.name}
-                        error={errors.name}
-                        id='name'
-                        
-                      />
-                      <MDBInput
-                        label="Your email"
-                        icon="envelope"
-                        group
-                        type="email"
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                      />
-                      <MDBInput
-                        label="Your password"
-                        icon="lock"
-                        group
-                        type="password"
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        
-                      />
-                      <MDBInput
-                        label="Confirm your password"
-                        icon="exclamation-triangle"
-                        group
-                        type="text"
-                        onChange={this.onChange}
-                        value={this.state.passwordConfirm}
-                        error={errors.passwordConfirm}
-                        
-                      />
-                    </div>
-                    <div className="text-center">
-                      <MDBBtn color="primary">Register</MDBBtn>
-                    </div>
+                  <p className="h5 text-center mb-4">Sign up</p>
+                  <div className="grey-text">
+                    <MDBInput
+                      label="Your name"
+                      icon="user"
+                      group
+                      type="text"
+                      onChange={this.onChange}
+                      value={this.state.name}
+                      error={errors.name}
+                      id="name"
+                    />
+                    <MDBInput
+                      label="Your email"
+                      icon="envelope"
+                      group
+                      type="email"
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      error={errors.email}
+                    />
+                    <MDBInput
+                      label="Your password"
+                      icon="lock"
+                      group
+                      type="password"
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.password}
+                    />
+                    <MDBInput
+                      label="Confirm your password"
+                      icon="exclamation-triangle"
+                      group
+                      type="text"
+                      onChange={this.onChange}
+                      value={this.state.passwordConfirm}
+                      error={errors.passwordConfirm}
+                    />
+                  </div>
+                  <div className="text-center">
+                    <MDBBtn color="primary">Register</MDBBtn>
+                  </div>
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
-                  </Form>
-          </div>
+          </Form>
         </div>
-      
+      </div>
     );
   }
 }
