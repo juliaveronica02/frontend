@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../action/auth";
 import classnames from "classnames";
-
 import "./style.css";
 import logo from "../../img/logo.svg";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
@@ -55,78 +53,106 @@ class Register extends Component {
       passwordConfirm: this.state.passwordConfirm,
     };
     this.props.registerUser(newUser, this.props.history);
-    console.log(newUser);
+    // console.log(newUser);
   };
   render() {
     const { errors } = this.state;
     return (
       <div className="d-md-flex flex-row">
         <container className="SignIn header">
-          <h1 className="display-3 font-weight-bold">
-            Want to Buy Something Cheap?
-          </h1>
-          <h1>Take a Look Inside Here.</h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </p>
-        </container>
-        <div className="logo">
-          {/* <img src={logo} alt="Logo Trishop" style={{ width: 75, paddingTop: 150 }} /> */}
-        </div>
-        <div className="form">
-          <Form obSubmit={this.onSubmit}>
-            <MDBContainer>
-              <MDBRow>
-                <MDBCol md="10">
-                  <p className="h5 text-center mb-4">Sign up</p>
-                  <div className="grey-text">
-                    <MDBInput
-                      label="Your name"
-                      icon="user"
-                      group
-                      type="text"
-                      onChange={this.onChange}
-                      value={this.state.name}
-                      error={errors.name}
-                      id="name"
-                    />
-                    <MDBInput
-                      label="Your email"
-                      icon="envelope"
-                      group
-                      type="email"
-                      onChange={this.onChange}
-                      value={this.state.email}
-                      error={errors.email}
-                    />
-                    <MDBInput
-                      label="Your password"
-                      icon="lock"
-                      group
-                      type="password"
-                      onChange={this.onChange}
-                      value={this.state.password}
-                      error={errors.password}
-                    />
-                    <MDBInput
-                      label="Confirm your password"
-                      icon="exclamation-triangle"
-                      group
-                      type="text"
-                      onChange={this.onChange}
-                      value={this.state.passwordConfirm}
-                      error={errors.passwordConfirm}
-                    />
-                  </div>
-                  <div className="text-center">
-                    <MDBBtn color="primary">Register</MDBBtn>
-                  </div>
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
+        <h1 className="display-3 font-weight-bold">
+          Want to Buy Something Cheap?
+        </h1>
+        <h1>Take a Look Inside Here.</h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+      </container>
+      <div className="form">
+      <Form onSubmit={this.onSubmit}>
+          <FormGroup>
+          <h5 className="font-weight-bold">Full Name</h5>
+            <Input
+              type="name"
+              name="name"
+              placeholder="Your Name"
+              onChange={this.onChange}
+              value={this.state.name}
+              error={errors.name}
+              id="name"
+              size="25"
+              className={classnames("form-control wider", {
+                invalid: errors.name || errors.namenotfound,
+              })}
+            />
+          </FormGroup>
+          <FormGroup>
+          <h5 className="font-weight-bold">Phone</h5>
+            <Input
+              type="text"
+              id="phone"
+              placeholder="Phone"
+              onChange={this.onChangePhone}
+              value={this.state.phone}
+              error={errors.phone}
+              className={classnames("form-control wider", {
+                invalid: errors.phone || errors.phonenotfound,
+              })}
+            />
+            </FormGroup>
+            <FormGroup>
+            <h5 className="font-weight-bold">Email</h5>
+            <Input
+              type="email"
+              id="email"
+              placeholder="Email"
+              onChange={this.onChange}
+              value={this.state.email}
+              error={errors.email}
+              className={classnames("form-control wider", {
+                invalid: errors.email || errors.emailnotfound,
+              })}
+            />
+            </FormGroup>
+            <FormGroup>
+            <h5 className="font-weight-bold">Password</h5>
+            <Input
+              type="password"
+              id="password"
+              placeholder="Password must be at least 8 characters"
+              onChange={this.onChange}
+              value={this.state.password}
+              error={errors.password}
+              className={classnames("form-control wider", {
+                invalid: errors.password || errors.passwordnotfound,
+              })}
+            />
+            </FormGroup>
+            <FormGroup>
+            <h5 className="font-weight-bold">Confirm Password</h5>
+            <Input
+              type="password"
+              id="passwordConfirm"
+              placeholder="Retype your password"
+              onChange={this.onChange}
+              value={this.state.passwordConfirm}
+              error={errors.passwordConfirm}
+              className={classnames("form-control wider", {
+                invalid: errors.passwordConfirm || errors.passwordConfirm,
+              })}
+            />
+            </FormGroup>
+            {/* <FormGroup check>
+            <Label check>
+              <Input type="checkbox" />
+              Remember Me
+            </Label>
+          </FormGroup> */}
+          <Button className="button center text-align-center box-wrapper" type="submit">
+              Sign Up</Button>
           </Form>
         </div>
       </div>

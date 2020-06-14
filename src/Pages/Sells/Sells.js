@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Card, Button, Container, Row } from "react-bootstrap";
-import styled from "styled-components";
+// import { Card, Button, Container, Row } from "react-bootstrap";
+// import styled from "styled-components";
 class Sell extends Component {
   constructor(props) {
     super(props);
@@ -125,8 +125,8 @@ class Sell extends Component {
       }
     }
     export default Sell;
-    const Wrapper = styled.section`
-      padding: 0;
-      margin: 0;
-      align-content: center;
-    `;
+    // const Wrapper = styled.section`
+    //   padding: 0;
+    //   margin: 0;
+    //   align-content: center;
+    // `;

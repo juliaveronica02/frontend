@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../action/auth";
 import classnames from "classnames";
-import logo from "../../img/logo.svg";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import {

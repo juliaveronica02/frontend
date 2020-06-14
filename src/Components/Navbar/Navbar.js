@@ -3,16 +3,12 @@ import { NavLink } from "react-router-dom";
 import { Navbar } from "reactstrap";
 import logo from "../../img/logo.svg";
 import SideBar from "./navbarSlide";
-import localForage from 'localforage'
-import PropTypes from "prop-types";
-import Swal from "sweetalert2";
-import { connect } from "react-redux";
+// import localForage from 'localforage'
+// import PropTypes from "prop-types";
+// import Swal from "sweetalert2";
+import {connect} from 'react-redux'
 // import "./navbar.scss";
 // import "./style.css";
-
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
 
 class NavMenu extends React.Component {
   constructor(props) {
@@ -100,38 +96,28 @@ class NavMenu extends React.Component {
             </li>
             </>
             ):(
-              <></>
-            )}
-              {this.props.auth.isAuthenticated === true ? (
-                <>
-             <li
-              className="nav-item">
-              <NavLink style={{ color: "black" }} className="nav-link" to="/cart">
+              <>
+            <li className="nav-item">
+              <NavLink
+                style={{ color: "black" }}
+                className="nav-link"
+                to="/cart"
+              >
                 Cart
               </NavLink>
             </li>
-            <li
-                  className="nav-item"
-                  style={{
-                    padding: 10,
-                    backgroundColor: "rgb(31, 43, 82)",
-                    borderRadius: 10,
-                    marginRight: 10,
-                  }}
-                >
-                  <NavLink
-                    style={{ color: "white" }}
-                    className="nav-link"
-                    to="/"
-                    href="/"
-                    onClick={this.onClick}
-                  >
-                    Log out
-                  </NavLink>
-                </li>
+            <li className="nav-item">
+              <NavLink
+                style={{ color: "black" }}
+                className="nav-link"
+                to="/"
+                href="/"
+                onClick={this.onClick}
+              >
+                Logout
+              </NavLink>
+            </li>
               </>
-            ) : (
-              <></>
             )}
           </ul>
         </Navbar>
@@ -140,4 +126,7 @@ class NavMenu extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
 export default connect(mapStateToProps)(NavMenu);

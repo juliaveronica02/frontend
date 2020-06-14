@@ -13,7 +13,7 @@ export const registerUser = (userData, history) => (dispatch) => {
     .then((res) => {
       Swal.fire({
         icon: `success`,
-        title: `Sukses`,
+        title: `Register Success`,
         // text: `Something Went Wrong!`
       })
       history.push("/signin")
@@ -26,11 +26,16 @@ export const registerUser = (userData, history) => (dispatch) => {
     //   },
     //   );
     // });
-    .catch(err => Swal.fire({
-      icon: `error`,
-      title: `Sorry`,
-      text: `Something Went Wrong!`
-    }))
+    .catch((err) => {
+      console.error(err.response)
+      if(err.response.status === 400){
+        Swal.fire('Please fill All the Field')
+      }
+      else{dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })}
+    })
 };
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
@@ -41,7 +46,8 @@ export const loginUser = (userData) => (dispatch) => {
       userData
     )
     .then((res) => {
-      console.log(res);
+      // console.log(res);
+      // if (res.status === 400){window.alert('salah password')}
       // Save to localStorage Set token to localStorage
       const token = res.data.token;
       localStorage.setItem("jwtToken", token);
@@ -56,17 +62,34 @@ export const loginUser = (userData) => (dispatch) => {
         title: 'Login Success'
       })
       );
-
+      
     })
     .catch((err) => {
-      dispatch({type: GET_ERRORS, payload: err.response },
-        Swal.fire({
-            icon: `error`,
-            title: `Sorry`,
-            text: `Something Went Wrong!`
-          })
-     )}
-    );
+      console.error(err.response)
+      if(err.response.status === 400){
+        Swal.fire(
+          {
+            icon: 'error',
+            text: 'Incorrect Password'
+          }
+        )
+      }
+      else if(err.response.status === 404){
+        Swal.fire(
+          {
+            icon: 'error',
+            text: 'Email Not Found'
+          }
+        )
+      }
+    })
+    //   dispatch({type: GET_ERRORS, payload: err.response },
+    //     // Swal.fire({
+    //     //     icon: `error`,
+    //     //     title: `Sorry`,
+    //     //     text: `Incorrect Email or Password`
+    //     //   })
+    //  )});
     // .catch((err) =>  Swal.fire({
     //   icon: `error`,
     //   title: `Sorry`,
