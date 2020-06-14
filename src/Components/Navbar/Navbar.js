@@ -32,6 +32,7 @@ class NavMenu extends React.Component {
     window.location.reload(false);
   };
   render() {
+    
     const { width } = this.state;
     const isMobile = width <= 500;
 
