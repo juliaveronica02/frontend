@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../action/auth";
+import {Link} from "react-router-dom"
 import classnames from "classnames";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
@@ -123,8 +124,8 @@ class Login extends Component {
                       <div className="signup" onClick={this.onClick}>
                         <p>
                           Not a member?{" "}
-                          <span to="/signup">
-                            <a href="/signup">Sign Up</a>
+                          <span>
+                            <Link to ="/signup">Sign Up</Link>
                           </span>
                         </p>
                       </div>
