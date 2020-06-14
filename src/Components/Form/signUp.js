@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import { registerUser } from "../../action/auth";
 import classnames from "classnames";
 import "./style.css";
+import logo from "../../img/logo.svg";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
 
 class Register extends Component {
   constructor() {
@@ -39,7 +40,7 @@ class Register extends Component {
   };
   onChangePhone = (e) => {
     this.setState({
-      [e.target.id]: e.target.value.replace(/\D/,''),
+      [e.target.id]: e.target.value.replace(/\D/, ""),
     });
   };
   onSubmit = (e) => {
@@ -153,7 +154,7 @@ class Register extends Component {
           <Button className="button center text-align-center box-wrapper" type="submit">
               Sign Up</Button>
           </Form>
-      </div>
+        </div>
       </div>
     );
   }

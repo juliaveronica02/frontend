@@ -3,9 +3,18 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../action/auth";
+import {Link} from "react-router-dom"
 import classnames from "classnames";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBModalFooter,
+} from "mdbreact";
 
 class Login extends Component {
   constructor() {
@@ -49,50 +58,74 @@ class Login extends Component {
   };
   render() {
     const { errors } = this.state;
+
     return (
       <div className="d-md-flex flex-row">
         <container className="SignIn header">
-        <h1 className="display-3 font-weight-bold">
-          Want to Buy Something Cheap?
-        </h1>
-        <h1>Take a Look Inside Here.</h1>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
-      </container>
-      <div className="form">
-        <Form onSubmit={this.onSubmit}>
-            <FormGroup>
-            <h5 className="font-weight-bold">Email</h5>
-              <Input type="email" name="email" placeholder="Email" onChange={this.onChange}  id="email"
-                        size="25" value={this.state.email} 
-              error={errors.email} className={classnames("form-control wider", {
-                invalid: errors.email || errors.emailnotfound,
-              })} />
-              </FormGroup>
-              <FormGroup>
-            <h5 className="font-weight-bold">Password</h5>
-                <Input type="password" name="password" placeholder="Password" onChange={this.onChange} value={this.state.password} 
-                 id="password"
-                 size="25"
-                className={classnames("form-control", {
-                  invalid: errors.password || errors.passwordincorrect,
-                })}
-                />
-            </FormGroup>
-            <FormGroup check>
-            <Label check>
-              <Input type="checkbox" />
-              Remember Me
-            </Label>
-          </FormGroup>
-          <Button className="button center text-align-center box-wrapper" type="submit">
-              Sign In</Button>
-        </Form>
-      </div>
+          <h1 className="display-3 font-weight-bold">
+            Want to Buy Something Cheap?
+          </h1>
+          <h1>Take a Look Inside Here.</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </container>
+
+        <div className="form">
+          <Form onSubmit={this.onSubmit}>
+            <MDBContainer>
+              <MDBRow>
+                <MDBCol md="10">
+                  <form>
+                    <p className="h5 text-center mb-4">Sign in</p>
+                    <div className="grey-text">
+                      <MDBInput
+                        label="Type your email"
+                        icon="envelope"
+                        group
+                        type="email"
+                        validate
+                        error="wrong"
+                        success="right"
+                      />
+                      <MDBInput
+                        label="Type your password"
+                        icon="lock"
+                        group
+                        type="password"
+                        validate
+                      />
+                    </div>
+                    <FormGroup check>
+                      <Label check>
+                        <Input type="checkbox" />
+                        Remember Me
+                      </Label>
+                      <div className="text-center">
+                        <MDBBtn color="primary">Login</MDBBtn>
+                      </div>
+                    </FormGroup>
+                  </form>
+                  <MDBModalFooter>
+                    <div className="font-weight-light forgot">
+                      <div className="signup" onClick={this.onClick}>
+                        <p>
+                          Not a member?{" "}
+                          <span>
+                            <Link to ="/signup">Sign Up</Link>
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </MDBModalFooter>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </Form>
+        </div>
       </div>
     );
   }
