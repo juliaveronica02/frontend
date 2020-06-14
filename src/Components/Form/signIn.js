@@ -87,26 +87,22 @@ class Login extends Component {
                         icon="envelope"
                         group
                         type="email"
-                        onChange={this.onChange}
+                        validate
+                        error="wrong"
+                        success="right"
                         id="email"
-                        size="25"
+                        onChange={this.onChange}
                         value={this.state.email}
-                        error={errors.email}
-                        className={classnames("form-control wider", {
-                          invalid: errors.email || errors.emailnotfound,
-                        })}
                       />
                       <MDBInput
                         label="Type your password"
                         icon="lock"
                         group
                         type="password"
+                        id="password"
                         onChange={this.onChange}
                         value={this.state.password}
-                        id="password"
-                        className={classnames("form-control", {
-                          invalid: errors.password || errors.passwordincorrect,
-                        })}
+                        validate
                       />
                     </div>
                     <FormGroup check>
@@ -115,7 +111,7 @@ class Login extends Component {
                         Remember Me
                       </Label>
                       <div className="text-center">
-                        <MDBBtn color="primary">Login</MDBBtn>
+                        <MDBBtn color="primary" type="submit">Login</MDBBtn>
                       </div>
                     </FormGroup>
                   </form>
