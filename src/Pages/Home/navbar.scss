@@ -115,6 +115,11 @@ nav {
   position: relative;
   padding-top: 4rem;
 
+  hr {
+    font-weight: bold;
+    color: grey;
+  }
+
   .white-box {
     position: absolute;
     background-color: $white;
@@ -164,7 +169,12 @@ nav {
           margin-bottom: 1rem;
         }
          
+        .buttonCart {
+          width: 100%;
+          text-align: center;
+        }
        }
      }
   }
 }
+
