@@ -53,7 +53,7 @@ class Register extends Component {
       passwordConfirm: this.state.passwordConfirm,
     };
     this.props.registerUser(newUser, this.props.history);
-    // console.log(newUser);
+    console.log(newUser);
   };
   render() {
     const { errors } = this.state;
@@ -75,7 +75,7 @@ class Register extends Component {
           {/* <img src={logo} alt="Logo Trishop" style={{ width: 75, paddingTop: 150 }} /> */}
         </div>
         <div className="form">
-          <Form obSubmit={this.onSubmit}>
+          <Form onSubmit={this.onSubmit}>
             <MDBContainer>
               <MDBRow>
                 <MDBCol md="10">
@@ -95,10 +95,24 @@ class Register extends Component {
                       })}
                     />
                     <MDBInput
+                      label="Phone Number"
+                      icon="phone"
+                      group
+                      type="text"
+                      id="phone"
+                      onChange={this.onChangePhone}
+                      value={this.state.phone}
+                      error={errors.phone}
+                      className={classnames("form-control wider", {
+                        invalid: errors.phone || errors.phonenotfound,
+                      })}
+                    />
+                    <MDBInput
                       label="Your email"
                       icon="envelope"
                       group
                       type="email"
+                      id="email"
                       onChange={this.onChange}
                       value={this.state.email}
                       error={errors.email}
@@ -111,6 +125,7 @@ class Register extends Component {
                       icon="lock"
                       group
                       type="password"
+                      id="password"
                       onChange={this.onChange}
                       value={this.state.password}
                       error={errors.password}
@@ -122,7 +137,8 @@ class Register extends Component {
                       label="Confirm your password"
                       icon="exclamation-triangle"
                       group
-                      type="text"
+                      type="password"
+                      id="passwordConfirm"
                       onChange={this.onChange}
                       value={this.state.passwordConfirm}
                       error={errors.passwordConfirm}
@@ -132,7 +148,7 @@ class Register extends Component {
                     />
                   </div>
                   <div className="text-center">
-                    <MDBBtn color="primary">Register</MDBBtn>
+                    <MDBBtn color="primary" type="submit">Register</MDBBtn>
                   </div>
                 </MDBCol>
               </MDBRow>
