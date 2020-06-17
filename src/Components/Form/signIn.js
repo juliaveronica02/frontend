@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../action/auth";
 import {Link} from "react-router-dom"
-import classnames from "classnames";
+// import classnames from "classnames";
 import LoadingSpinner from './Loading'
 import "./style.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import {
   MDBContainer,
   MDBRow,
@@ -60,7 +60,7 @@ class Login extends Component {
     console.log(userData);
   };
   render() {
-    const { errors } = this.state;
+    // const { errors } = this.state.errors;
 
     return (
       <div className="d-md-flex flex-row">

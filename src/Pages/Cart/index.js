@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import { connect } from 'react-redux';
 import localforage from 'localforage';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import axios from 'axios';
 import './cart.scss';
@@ -25,7 +25,7 @@ const Index = (props) => {
                 Swal.fire("Thank You, The Next Feature is Still Coming Soon")
             })
     }
-    const URL = `${process.env.REACT_APP_API_URL_SERVER}`;
+    // const URL = `${process.env.REACT_APP_API_URL_SERVER}`;
 
     
     return (
@@ -43,7 +43,7 @@ const Index = (props) => {
                       <img className="img-fluid w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg" alt="Sample" />
                       <a href="#!">
                         <div className="mask waves-effect waves-light">
-                          <img className="img-fluid w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" />
+                          <img className="img-fluid w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" alt="sample2" />
                           <div className="mask rgba-black-slight waves-effect waves-light" />
                         </div>
                       </a>
@@ -86,7 +86,7 @@ const Index = (props) => {
                       <img className="img-fluid w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg" alt="Sample" />
                       <a href="#!">
                         <div className="mask waves-effect waves-light">
-                          <img className="img-fluid w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" />
+                          <img className="img-fluid w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" alt="sample3" />
                           <div className="mask rgba-black-slight waves-effect waves-light" />
                         </div>
                       </a>
