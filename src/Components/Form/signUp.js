@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../action/auth";
 import classnames from "classnames";
 import "./style.css";
+import LoadingSpinner from './Loading'
 import logo from "../../img/logo.svg";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
@@ -19,6 +20,7 @@ class Register extends Component {
       password: "",
       passwordConfirm: "",
       errors: {},
+      loading: false
     };
   }
   componentDidMount() {
@@ -45,6 +47,7 @@ class Register extends Component {
   };
   onSubmit = (e) => {
     e.preventDefault();
+    this.setState({loading : true})
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -147,6 +150,7 @@ class Register extends Component {
                       })}
                     />
                   </div>
+                  {this.state.loading ? <LoadingSpinner /> : <></>}
                   <div className="text-center">
                     <MDBBtn color="primary" type="submit">Register</MDBBtn>
                   </div>

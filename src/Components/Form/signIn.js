@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../action/auth";
 import {Link} from "react-router-dom"
 import classnames from "classnames";
+import LoadingSpinner from './Loading'
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import {
@@ -24,10 +25,11 @@ class Login extends Component {
       email: "",
       password: "",
       errors: {},
+      loading: false
     };
   }
   componentDidMount() {
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true, loading: false });
     // If logged in and user navigates to Register page, should redirect them to
     // dashboard
     if (this.props.auth.isAuthenticated) {
@@ -39,7 +41,7 @@ class Login extends Component {
       this.props.history.push("/"); // push user to dashboard when they login
     }
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+      this.setState({ errors: nextProps.errors});
     }
   }
   onChange = (e) => {
@@ -49,6 +51,7 @@ class Login extends Component {
   };
   onSubmit = (e) => {
     e.preventDefault();
+    this.setState({loading : true})
     const userData = {
       email: this.state.email,
       password: this.state.password,
@@ -110,6 +113,7 @@ class Login extends Component {
                         <Input type="checkbox" />
                         Remember Me
                       </Label>
+                      {this.state.loading ? <LoadingSpinner /> : <></>}
                       <div className="text-center">
                         <MDBBtn color="primary" type="submit">Login</MDBBtn>
                       </div>

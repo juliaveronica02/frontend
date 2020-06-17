@@ -3,11 +3,13 @@ import setAuthToken from "../utils/authToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 import Swal from 'sweetalert2'
+import loadingSpinner from './../Components/Form/Loading'
+import { useState, useEffect } from "react";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   // console.log("user", userData);
-
+  
   axios
     .post(`https://api.juliaveronica.com/users/register`, userData)
     .then((res) => {
@@ -29,7 +31,7 @@ export const registerUser = (userData, history) => (dispatch) => {
     .catch((err) => {
       console.error(err.response)
       if(err.response.status === 400){
-        Swal.fire('Please fill All the Field')
+        Swal.fire('Password must match')
       }
       else if(err.response.status === 401){
         Swal.fire('Email already Registered')
@@ -45,6 +47,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 };
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
+  
   axios
     .post(
       `${process.env.REACT_APP_API_URL_LOGIN}`,
