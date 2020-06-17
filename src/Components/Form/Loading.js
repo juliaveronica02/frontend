@@ -1,5 +1,4 @@
 import React from 'react';
-import {faSpinner} from '@fortawesome/free-solid-svg-icons'
 
     const LoadingSpinner = () => (
       <div>

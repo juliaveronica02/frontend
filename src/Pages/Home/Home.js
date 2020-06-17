@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { MDBBtn } from "mdbreact";
 import "./navbar.scss";
 import shoes1 from "../../img/shoes01.png";

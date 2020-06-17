@@ -3,8 +3,6 @@ import setAuthToken from "../utils/authToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 import Swal from 'sweetalert2'
-import loadingSpinner from './../Components/Form/Loading'
-import { useState, useEffect } from "react";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {

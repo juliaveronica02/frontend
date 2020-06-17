@@ -6,8 +6,8 @@ import { registerUser } from "../../action/auth";
 import classnames from "classnames";
 import "./style.css";
 import LoadingSpinner from './Loading'
-import logo from "../../img/logo.svg";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+// import logo from "../../img/logo.svg";
+import { Form } from "reactstrap";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
 
 class Register extends Component {
