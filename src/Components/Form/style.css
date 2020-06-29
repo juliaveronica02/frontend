@@ -5,12 +5,18 @@
     color: white;
     padding: 100px;
     width: 140%;
+    height: 100%;
   }
   
   .display-3 {
       display: inline-block;
   }
   
+  .logo {
+    width: 75px;
+    height: 125px;
+  }
+
   .form {
     height: 100vh;
     display: flex;
@@ -20,6 +26,15 @@
     color: black;
     text-align: left;
     
+  }
+
+  .forgot {
+    font-size: 14px;
+
+  }
+
+  .forgot span {
+    color: blue;
   }
   
   .form .wider {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { MDBBtn } from "mdbreact";
 import "./navbar.scss";
 import shoes1 from "../../img/shoes01.png";
 import shoes2 from "../../img/shoes02.png";
@@ -10,7 +11,8 @@ export default class Home extends Component {
             <div id="catalog">
           <div className="white-box">
           <div className="catalog-content">
-            <h2>New Arrival</h2>
+            <h2 className="arrival"> New Arrival</h2>
+            <hr/>
             <div className="product-list">
               <div className="fadeIn product">
                 <div className="product-image">
@@ -23,6 +25,9 @@ export default class Home extends Component {
                   </div>
                   <div className="product-prize">Rp. 150.000,-</div>
                 </div>
+                <div className="buttonCart">
+                  <MDBBtn color="indigo">Add to Cart<i class="fa fa-cart" aria-hidden="true"></i></MDBBtn></div>
+                    
               </div>
               <div className="fadeIn product">
                 <div className="product-image">

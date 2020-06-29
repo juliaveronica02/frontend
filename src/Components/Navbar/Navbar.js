@@ -32,6 +32,7 @@ class NavMenu extends React.Component {
     window.location.reload(false);
   };
   render() {
+    
     const { width } = this.state;
     const isMobile = width <= 500;
 
@@ -95,38 +96,28 @@ class NavMenu extends React.Component {
             </li>
             </>
             ):(
-              <></>
-            )}
-              {this.props.auth.isAuthenticated === true ? (
-                <>
-             <li
-              className="nav-item">
-              <NavLink  style={{ color: "black" }} className="nav-link" to="/cart">
+              <>
+            <li className="nav-item">
+              <NavLink
+                style={{ color: "black" }}
+                className="nav-link"
+                to="/cart"
+              >
                 Cart
               </NavLink>
             </li>
-            <li
-                  className="nav-item"
-                  style={{
-                    padding: 10,
-                    backgroundColor: "rgb(31, 43, 82)",
-                    borderRadius: 10,
-                    marginRight: 10,
-                  }}
-                >
-                  <NavLink
-                    style={{ color: "white" }}
-                    className="nav-link"
-                    to="/"
-                    href="/"
-                    onClick={this.onClick}
-                  >
-                    Log out
-                  </NavLink>
-                </li>
+            <li className="nav-item">
+              <NavLink
+                style={{ color: "black" }}
+                className="nav-link"
+                to="/"
+                href="/"
+                onClick={this.onClick}
+              >
+                Logout
+              </NavLink>
+            </li>
               </>
-            ) : (
-              <></>
             )}
           </ul>
         </Navbar>
